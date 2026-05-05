@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samarth Asati</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,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">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Jost:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f4f4f2;
+      --bg2: #eeeeed;
+      --text: #1e1b18;
+      --muted: #8a8888;
+      --accent: #6b4f38;
+      --link: #5c4a3a;
+      --hr: #dededd;
+      --nav-bg: rgba(244,244,242,0.94);
+      --card-bg: #f8f8f6;
+      --tag-bg: #e9e9e8;
+    }
+
+    body.dark {
+      --bg: #141210;
+      --bg2: #1c1916;
+      --text: #ece7df;
+      --muted: #7a7168;
+      --accent: #c8b99a;
+      --link: #d4c4ae;
+      --hr: #2a2620;
+      --nav-bg: rgba(20,18,16,0.94);
+      --card-bg: #1a1714;
+      --tag-bg: #242018;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Jost', sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      transition: background .4s, color .4s;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.5;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 64px;
+      background: var(--nav-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 100;
+      border-bottom: 1px solid transparent;
+      transition: border-color .3s, background .4s, padding .3s;
+    }
+    nav.scrolled { border-color: var(--hr); padding: 14px 64px; }
+
+    .nav-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px; font-weight: 500; letter-spacing: .01em;
+      color: var(--text); text-decoration: none; cursor: pointer;
+      transition: color .2s;
+    }
+    .nav-name:hover { color: var(--accent); }
+
+    .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+
+    .nav-links button {
+      background: none; border: none; cursor: pointer;
+      font-family: 'Jost', sans-serif;
+      font-size: 11.5px; font-weight: 500;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--muted); transition: color .2s; padding: 0;
+    }
+    .nav-links button:hover, .nav-links button.active { color: var(--text); }
+    .nav-links button.active { color: var(--accent); }
+
+    .toggle {
+      background: none; border: none; cursor: pointer;
+      color: var(--muted); padding: 4px; display: flex;
+      align-items: center; justify-content: center;
+      width: 30px; height: 30px;
+      transition: color .2s, transform .4s ease;
+      border-radius: 50%;
+    }
+    .toggle:hover { color: var(--accent); transform: rotate(20deg); }
+
+    /* PAGES */
+    .page { display: none; opacity: 0; transform: translateY(16px); transition: opacity .45s ease, transform .45s ease; }
+    .page.active { display: block; }
+    .page.visible { opacity: 1; transform: none; }
+
+    .wrap { max-width: 780px; margin: 0 auto; padding: 0 44px; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding-top: 130px; padding-bottom: 80px;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 20px; font-weight: 500;
+      opacity: 0; animation: fadeUp .7s .3s forwards;
+    }
+
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(52px, 8vw, 88px);
+      font-weight: 400; line-height: 1.05;
+      margin-bottom: 22px; letter-spacing: -.02em;
+      opacity: 0; animation: fadeUp .7s .45s forwards;
+    }
+
+    .hero-sub {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; font-style: italic; font-weight: 400;
+      color: var(--muted); margin-bottom: 44px; min-height: 34px;
+      opacity: 0; animation: fadeUp .7s .6s forwards;
+    }
+
+    .cursor {
+      display: inline-block; width: 1.5px; height: .85em;
+      background: var(--accent); margin-left: 2px;
+      vertical-align: text-bottom; animation: blink .75s step-end infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .hero-bio { opacity: 0; animation: fadeUp .7s .75s forwards; }
+    .hero-bio p {
+      font-size: 17px; max-width: 560px;
+      margin-bottom: 16px; color: var(--text); opacity: .8; font-weight: 300;
+    }
+    .hero-bio a {
+      color: var(--accent); text-decoration: underline;
+      text-decoration-thickness: 1px; text-underline-offset: 3px;
+      transition: opacity .2s;
+    }
+    .hero-bio a:hover { opacity: .65; }
+
+    .hero-scroll {
+      position: absolute; bottom: 40px; left: 44px;
+      display: flex; align-items: center; gap: 10px;
+      opacity: 0; animation: fadeUp .6s 1.2s forwards;
+    }
+    .hero-scroll span {
+      font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--muted); opacity: .5;
+    }
+    .scroll-line {
+      width: 40px; height: 1px; background: var(--muted); opacity: .3;
+      transform-origin: left; animation: lineGrow 1s 1.5s ease forwards;
+      transform: scaleX(0);
+    }
+    @keyframes lineGrow { to { transform: scaleX(1); } }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    /* DIVIDER */
+    .divider { display: flex; align-items: center; gap: 16px; padding: 12px 0; margin: 12px 0; }
+    .divider-line { flex: 1; height: 1px; background: var(--hr); }
+    .divider-dot { width: 4px; height: 4px; background: var(--accent); opacity: .4; border-radius: 50%; }
+
+    /* SECTION */
+    .sec { padding-top: 72px; padding-bottom: 28px; }
+    .sec-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 36px; }
+    .sec-label { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); font-weight: 500; }
+    .sec-all {
+      font-size: 12px; color: var(--muted); background: none; border: none;
+      cursor: pointer; font-family: 'Jost', sans-serif;
+      letter-spacing: .08em; transition: color .2s; padding: 0;
+    }
+    .sec-all:hover { color: var(--accent); }
+
+    /* ROWS */
+    .row {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--hr);
+      text-decoration: none; color: inherit;
+      transition: opacity .2s, padding .2s; cursor: pointer;
+      background: none; border-left: none; border-right: none; border-top: none;
+      width: 100%; text-align: left; font-family: 'Jost', sans-serif;
+      border-radius: 4px;
+    }
+    .row:first-of-type { border-top: 1px solid var(--hr); }
+    .row:hover { opacity: .65; padding-left: 6px; }
+
+    .row-info { flex: 1; }
+    .row-title { font-family: 'Playfair Display', serif; font-size: 19px; font-style: italic; margin-bottom: 5px; }
+    .row-desc { font-size: 14px; color: var(--muted); font-weight: 300; }
+    .row-meta { font-size: 12px; color: var(--muted); white-space: nowrap; padding-top: 3px; opacity: .7; }
+
+    /* NOTE ROW */
+    .note-row { padding: 22px 0; border-bottom: 1px solid var(--hr); }
+    .note-row:first-of-type { border-top: 1px solid var(--hr); }
+    .note-date { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); opacity: .7; margin-bottom: 7px; font-weight: 500; }
+    .note-text { font-size: 16.5px; opacity: .82; max-width: 600px; font-weight: 300; }
+
+    /* PAGE HERO */
+    .ph { padding-top: 150px; padding-bottom: 52px; }
+    .pt { font-family: 'Playfair Display', serif; font-size: clamp(40px, 6vw, 64px); font-weight: 400; letter-spacing: -.02em; margin-bottom: 12px; }
+    .ps { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 400; font-style: italic; color: var(--muted); }
+
+    /* PROJECT CARDS */
+    .pcard { padding: 32px 0; border-bottom: 1px solid var(--hr); }
+    .pcard:first-of-type { border-top: 1px solid var(--hr); }
+    .pcard-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+    .pcard-title { font-family: 'Playfair Display', serif; font-size: 21px; font-style: italic; }
+    .pcard-title a { color: var(--text); text-decoration: none; transition: color .2s; }
+    .pcard-title a:hover { color: var(--accent); }
+    .pcard-year { font-size: 12px; color: var(--muted); opacity: .7; }
+    .pcard-desc { font-size: 15.5px; opacity: .75; max-width: 580px; margin-bottom: 16px; font-weight: 300; line-height: 1.7; }
+
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); background: var(--tag-bg); padding: 4px 12px; border-radius: 2px; font-weight: 500; }
+
+    /* ESSAY ROW */
+    .erow { padding: 24px 0; border-bottom: 1px solid var(--hr); }
+    .erow:first-of-type { border-top: 1px solid var(--hr); }
+    .erow-top { display: flex; justify-content: space-between; align-items: flex-start; cursor: pointer; gap: 12px; }
+    .erow-title { font-family: 'Playfair Display', serif; font-size: 20px; font-style: italic; margin-bottom: 5px; transition: color .2s; flex: 1; }
+    .erow-top:hover .erow-title { color: var(--accent); }
+    .erow-arrow { font-size: 18px; color: var(--muted); opacity: .5; transition: transform .35s ease, opacity .2s; margin-top: 2px; flex-shrink: 0; }
+    .erow-arrow.open { transform: rotate(180deg); opacity: .8; }
+    .erow-sub { font-size: 14px; color: var(--muted); margin-bottom: 7px; font-weight: 300; }
+    .erow-meta { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); opacity: .6; font-weight: 500; }
+
+    .essay-body { max-height: 0; overflow: hidden; transition: max-height .55s cubic-bezier(.4,0,.2,1), opacity .4s ease; opacity: 0; }
+    .essay-body.open { max-height: 1200px; opacity: 1; }
+    .essay-body p { font-size: 16.5px; opacity: .8; line-height: 1.85; margin-top: 18px; font-weight: 300; }
+    .essay-body p:first-child { margin-top: 22px; }
+
+    /* ABOUT */
+    .about-intro { display: flex; gap: 52px; align-items: flex-start; padding-bottom: 44px; border-bottom: 1px solid var(--hr); }
+    .about-intro-text { flex: 1; }
+    .about-intro-text p { font-size: 16.5px; font-weight: 300; opacity: .82; line-height: 1.9; margin-bottom: 14px; }
+    .about-stat-col { display: flex; flex-direction: column; gap: 28px; flex-shrink: 0; min-width: 90px; }
+    .about-stat { text-align: right; }
+    .about-stat-num { display: block; font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 400; line-height: 1; color: var(--accent); margin-bottom: 5px; }
+    .about-stat-label { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+
+    .about-section { padding: 32px 0; border-bottom: 1px solid var(--hr); }
+    .about-section:last-of-type { border-bottom: none; }
+    .about-label { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 22px; }
+
+    .cert-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+    .cert-badge { display: flex; align-items: center; gap: 9px; padding: 10px 16px; border: 1px solid var(--hr); border-radius: 3px; background: var(--card-bg); transition: border-color .2s; }
+    .cert-badge:hover { border-color: var(--accent); }
+    .cert-org { font-size: 12px; font-weight: 500; color: var(--text); opacity: .85; }
+    .cert-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); opacity: .5; flex-shrink: 0; }
+
+    .about-stack-grid { display: flex; flex-direction: column; gap: 16px; }
+    .stack-item { display: flex; align-items: center; gap: 16px; }
+    .stack-name { font-size: 13px; font-weight: 400; width: 110px; flex-shrink: 0; color: var(--text); opacity: .8; letter-spacing: .02em; }
+    .stack-bar { flex: 1; height: 2px; background: var(--hr); border-radius: 2px; overflow: hidden; }
+    .stack-bar span { display: block; height: 100%; background: var(--accent); opacity: .6; border-radius: 2px; transform: scaleX(0); transform-origin: left; transition: transform .8s cubic-bezier(.4,0,.2,1); }
+    .page.visible .stack-bar span { transform: scaleX(1); }
+    .stack-note { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); opacity: .65; flex-shrink: 0; }
+
+    .about-edu-row { display: flex; justify-content: space-between; align-items: flex-start; }
+    .about-edu-school { font-family: 'Playfair Display', serif; font-size: 20px; font-style: italic; margin-bottom: 5px; }
+    .about-edu-detail { font-size: 14px; color: var(--muted); font-weight: 300; }
+    .about-edu-year { font-size: 12px; color: var(--muted); opacity: .6; padding-top: 4px; }
+
+    .about-roles { display: flex; flex-direction: column; gap: 0; }
+    .role-row { display: flex; align-items: flex-start; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--hr); }
+    .role-row:last-child { border-bottom: none; }
+    .role-num { font-family: 'Playfair Display', serif; font-size: 13px; font-style: italic; color: var(--accent); opacity: .5; padding-top: 2px; flex-shrink: 0; width: 18px; }
+    .role-title { font-size: 15px; font-weight: 500; margin-bottom: 3px; }
+    .role-desc { font-size: 13.5px; color: var(--muted); font-weight: 300; line-height: 1.65; }
+
+    .about-interests { display: flex; gap: 14px; flex-wrap: wrap; }
+    .interest-card { display: flex; align-items: center; gap: 12px; padding: 14px 18px; border: 1px solid var(--hr); border-radius: 3px; flex: 1; min-width: 140px; background: var(--card-bg); transition: border-color .2s; }
+    .interest-card:hover { border-color: var(--accent); }
+    .interest-icon { font-size: 20px; line-height: 1; flex-shrink: 0; }
+    .interest-name { font-size: 14px; font-weight: 500; }
+
+    .about-goal { margin-top: 40px; margin-bottom: 48px; padding: 28px 32px; border-left: 2px solid var(--accent); background: var(--card-bg); border-radius: 0 3px 3px 0; }
+    .about-goal p { font-family: 'Playfair Display', serif; font-size: 19px; font-style: italic; line-height: 1.7; opacity: .85; }
+    .about-goal-label { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 10px; opacity: .7; }
+
+    /* CONTACT */
+    .contact-block { margin-bottom: 48px; }
+    .contact-text { color: var(--muted); font-size: 17px; max-width: 480px; margin-bottom: 28px; font-weight: 300; line-height: 1.8; }
+    .contact-links { display: flex; flex-direction: column; gap: 14px; }
+    .contact-link-row { display: flex; align-items: center; gap: 14px; }
+    .contact-link-label { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); opacity: .6; width: 56px; font-weight: 500; }
+    .contact-link { color: var(--text); text-decoration: none; font-family: 'Playfair Display', serif; font-size: 18px; font-style: italic; transition: color .2s; border-bottom: 1px solid var(--hr); padding-bottom: 1px; }
+    .contact-link:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* FOOTER */
+    footer { margin-top: 80px; border-top: 1px solid var(--hr); }
+    .foot { max-width: 780px; margin: 0 auto; padding: 28px 44px; display: flex; justify-content: space-between; align-items: center; }
+    .foot-copy { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); opacity: .45; font-weight: 400; }
+    .foot-links { display: flex; gap: 24px; }
+    .foot-links a { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); text-decoration: none; opacity: .45; transition: opacity .2s; font-weight: 400; }
+    .foot-links a:hover { opacity: 1; color: var(--accent); }
+
+    .fi { opacity: 1; }
+
+    @media (max-width: 580px) {
+      .about-intro { flex-direction: column; gap: 28px; }
+      .about-stat-col { flex-direction: row; justify-content: space-between; }
+      .about-stat { text-align: left; }
+      .about-edu-row { flex-direction: column; gap: 4px; }
+      .about-goal { padding: 20px; }
+    }
+    /* Hamburger button */
+    .hamburger {
+      display: none;
+      flex-direction: column; justify-content: center; align-items: center;
+      gap: 5px; width: 36px; height: 36px;
+      background: none; border: none; cursor: pointer;
+      padding: 4px; border-radius: 4px;
+    }
+    .hamburger span {
+      display: block; width: 20px; height: 1.5px;
+      background: var(--text); border-radius: 2px;
+      transition: transform .3s ease, opacity .3s ease, width .3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Mobile drawer */
+    .mobile-menu {
+      display: none;
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--nav-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 99;
+      flex-direction: column;
+      justify-content: center; align-items: center;
+      gap: 8px;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s ease;
+    }
+    .mobile-menu.open {
+      display: flex;
+      opacity: 1; pointer-events: all;
+    }
+    .mobile-menu button {
+      background: none; border: none; cursor: pointer;
+      font-family: 'Jost', sans-serif;
+      font-size: 22px; font-weight: 400;
+      letter-spacing: .08em;
+      color: var(--text); padding: 12px 24px;
+      transition: color .2s;
+      width: 100%; text-align: center;
+    }
+    .mobile-menu button:hover, .mobile-menu button.active { color: var(--accent); }
+
+    .mobile-theme-row {
+      margin-top: 24px;
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; color: var(--muted); letter-spacing: .1em;
+    }
+    .mobile-theme-row .toggle {
+      width: 40px; height: 40px;
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 16px 22px; }
+      nav.scrolled { padding: 12px 22px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .wrap { padding: 0 22px; }
+      .foot { padding: 22px; flex-direction: column; gap: 12px; text-align: center; }
+      .hero-scroll { left: 22px; }
+      .contact-links { gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <span class="nav-name" onclick="goTo('home')">Samarth Asati</span>
+  <ul class="nav-links">
+    <li><button onclick="goTo('about')" id="n-about">About</button></li>
+    <li><button onclick="goTo('projects')" id="n-projects">Projects</button></li>
+    <li><button onclick="goTo('essays')" id="n-essays">Essays</button></li>
+    <li><button onclick="goTo('notes')" id="n-notes">Notes</button></li>
+    <li><button onclick="goTo('contact')" id="n-contact">Contact</button></li>
+    <li>
+      <button class="toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg id="imoon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg id="isun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile fullscreen menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <button onclick="mobileGoTo('home')">Home</button>
+  <button onclick="mobileGoTo('about')" id="mn-about">About</button>
+  <button onclick="mobileGoTo('projects')" id="mn-projects">Projects</button>
+  <button onclick="mobileGoTo('essays')" id="mn-essays">Essays</button>
+  <button onclick="mobileGoTo('notes')" id="mn-notes">Notes</button>
+  <button onclick="mobileGoTo('contact')" id="mn-contact">Contact</button>
+  <div class="mobile-theme-row">
+    <span>Theme</span>
+    <button class="toggle" onclick="toggleTheme()" aria-label="Toggle theme" style="width:40px;height:40px;">
+      <svg id="imoon2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg id="isun2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- HOME -->
+<div class="page" id="page-home">
+  <div class="wrap hero">
+    <div class="hero-eyebrow">Builder  Developer  Creator  Learner  Student</div>
+    <h1 class="hero-name">Samarth<br>Asati</h1>
+    <p class="hero-sub"><span id="tw"></span><span class="cursor"></span></p>
+    <div class="hero-bio">
+      <p>I'm a builder from Gondia, Maharashtra — interested in AI, coding, and innovation. Currently working on <a href="https://github.com/Samarth71" target="_blank">Eranatis</a> — an AI writing tool.</p>
+      <p>I'm also the creator of <a href="https://dr-asatiii.vercel.app/" target="_blank">Dr. Asati</a>, an AI health assistant. This site is where I share my work, essays, and notes.</p>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="divider fi"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
+  </div>
+
+  <div class="wrap sec">
+    <div class="sec-head fi">
+      <span class="sec-label">Selected Projects</span>
+      <button class="sec-all" onclick="goTo('projects')">View all →</button>
+    </div>
+    <button class="row fi" onclick="window.open('https://dr-asatiii.vercel.app/','_blank')">
+      <div class="row-info">
+        <div class="row-title">Dr. Asati — AI Health Assistant</div>
+        <div class="row-desc">An AI-powered health assistant for medical queries</div>
+      </div>
+      <div class="row-meta">2026</div>
+    </button>
+    <button class="row fi" onclick="window.open('https://megmee.vercel.app/','_blank')">
+      <div class="row-info">
+        <div class="row-title">Megmee — Anonymous Messaging App</div>
+        <div class="row-desc">Chat with anyone, no phone number needed. E2E encrypted.</div>
+      </div>
+      <div class="row-meta">2026</div>
+    </button>
+    <button class="row fi" onclick="goTo('projects')">
+      <div class="row-info">
+        <div class="row-title">Eranatis — AI Writing Tool</div>
+        <div class="row-desc">An intelligent writing assistant — in development</div>
+      </div>
+      <div class="row-meta">2026–</div>
+    </button>
+  </div>
+
+  <div class="wrap">
+    <div class="divider fi"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
+  </div>
+
+  <div class="wrap sec">
+    <div class="sec-head fi">
+      <span class="sec-label">Recent Essays</span>
+      <button class="sec-all" onclick="goTo('essays')">Archive →</button>
+    </div>
+    <button class="row fi" onclick="goTo('essays')">
+      <div class="row-info">
+        <div class="row-title">Why AI will change everything</div>
+        <div class="row-desc">And why most people aren't ready</div>
+      </div>
+      <div class="row-meta">Mar 2026 · 4 min</div>
+    </button>
+    <button class="row fi" onclick="goTo('essays')">
+      <div class="row-info">
+        <div class="row-title">Building as a teenager</div>
+        <div class="row-desc">What shipping real products teaches you</div>
+      </div>
+      <div class="row-meta">Feb 2026 · 3 min</div>
+    </button>
+    <button class="row fi" onclick="goTo('essays')">
+      <div class="row-info">
+        <div class="row-title">On Innovation</div>
+        <div class="row-desc">Ideas are cheap. Execution is everything.</div>
+      </div>
+      <div class="row-meta">Jan 2026 · 2 min</div>
+    </button>
+  </div>
+
+  <div class="wrap">
+    <div class="divider fi"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
+  </div>
+
+  <div class="wrap sec">
+    <div class="sec-head fi">
+      <span class="sec-label">Notes</span>
+      <button class="sec-all" onclick="goTo('notes')">All →</button>
+    </div>
+    <div class="note-row fi">
+      <div class="note-date">9 May 2026</div>
+      <div class="note-text">Working on Eranatis. The hardest part isn't the code — it's figuring out what the user actually needs.</div>
+    </div>
+    <div class="note-row fi">
+      <div class="note-date">1 May 2026</div>
+      <div class="note-text">Every project teaches you something no tutorial ever could.</div>
+    </div>
+    <div class="note-row fi">
+      <div class="note-date">18 April 2026</div>
+      <div class="note-text">AI is not replacing thinkers. It's amplifying them. Build with it, not against it.</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="foot">
+      <span class="foot-copy">© 2026 Samarth Asati</span>
+      <div class="foot-links">
+        <a href="https://www.linkedin.com/in/samarth-asati" target="_blank">LinkedIn</a>
+        <a href="https://github.com/Samarth71" target="_blank">GitHub</a>
+        <a href="mailto:asatisam053@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- PROJECTS -->
+<div class="page" id="page-projects">
+  <div class="wrap ph">
+    <h1 class="pt fi">Projects</h1>
+    <p class="ps fi">Things I've built.</p>
+  </div>
+  <div class="wrap">
+    <div class="pcard fi">
+      <div class="pcard-top">
+        <div class="pcard-title"><a href="https://dr-asatiii.vercel.app/" target="_blank">Dr. Asati — AI Health Assistant ↗</a></div>
+        <div class="pcard-year">2026</div>
+      </div>
+      <p class="pcard-desc">An AI-powered health assistant that helps users understand medical queries, symptoms, and general health information.</p>
+      <div class="tags" style="margin-bottom:18px"><span class="tag">AI</span><span class="tag">Health</span><span class="tag">Web</span></div>
+      <div class="erow-top" onclick="toggleEssay('p1')" style="padding-top:2px">
+        <span style="font-size:13px;color:var(--muted);letter-spacing:.06em;font-family:'Jost',sans-serif;">The story behind it</span>
+        <span class="erow-arrow" id="arr-p1">↓</span>
+      </div>
+      <div class="essay-body" id="p1">
+        <p><strong style="font-weight:500;color:var(--text)">The Problem.</strong> People around me — family, neighbours — would either ignore symptoms or spend hours on Google, ending up more confused and scared than before. Smaller towns like Gondia don't always have easy access to doctors for every small query. The information online is scattered, too technical, and nobody has time to sift through it.</p>
+        <p><strong style="font-weight:500;color:var(--text)">Why I built it.</strong> I wanted something that felt like asking a knowledgeable friend — not a medical textbook. Something that understands your symptoms in plain language and gives you a clear, calm answer. I built Dr. Asati so that anyone, anywhere, could get basic health information without needing an appointment or a medical degree to understand the response.</p>
+        <p><strong style="font-weight:500;color:var(--text)">What it does for you.</strong> Dr. Asati helps you understand what your symptoms might mean, what questions to ask your doctor, and whether something needs urgent attention. It doesn't replace doctors — it helps you show up to them better informed. That gap between "something feels wrong" and "I know what to do about it" is exactly what it fills.</p>
+      </div>
+    </div>
+
+    <div class="pcard fi">
+      <div class="pcard-top">
+        <div class="pcard-title"><a href="https://megmee.vercel.app/" target="_blank">Megmee — Anonymous Messaging App ↗</a></div>
+        <div class="pcard-year">2026</div>
+      </div>
+      <p class="pcard-desc">A messaging app where you can chat with anyone without adding a phone number. End-to-end encrypted, simple, and open to all — no exclusivity, no barriers.</p>
+      <div class="tags" style="margin-bottom:18px"><span class="tag">Web</span><span class="tag">Messaging</span><span class="tag">Privacy</span><span class="tag">E2E Encrypted</span></div>
+      <div class="erow-top" onclick="toggleEssay('p3')" style="padding-top:2px">
+        <span style="font-size:13px;color:var(--muted);letter-spacing:.06em;font-family:'Jost',sans-serif;">The story behind it</span>
+        <span class="erow-arrow" id="arr-p3">↓</span>
+      </div>
+      <div class="essay-body" id="p3">
+        <p><strong style="font-weight:500;color:var(--text)">Why I built it.</strong> Most messaging apps require a phone number just to start a conversation. I wanted something simpler — open a link, start chatting. No sign-up friction, no personal info needed. WhatsApp is great, but sometimes you just want something lighter.</p>
+        <p><strong style="font-weight:500;color:var(--text)">What you get.</strong> Megmee is end-to-end encrypted, so your conversations stay private. No phone number, no account, no drama. Just a clean messaging experience that works for anyone — whether you're chatting with a friend or someone you just met online.</p>
+        <p><strong style="font-weight:500;color:var(--text)">What building it taught me.</strong> Not every project needs millions of users to matter. Building Megmee taught me more about how the web actually works — encryption, real-time communication, user experience — than any course ever could. That alone made it worth it.</p>
+      </div>
+    </div>
+
+    <div class="pcard fi">
+      <div class="pcard-top">
+        <div class="pcard-title"><a href="https://github.com/Samarth71" target="_blank">Eranatis — AI Writing Tool ↗</a></div>
+        <div class="pcard-year">2026–</div>
+      </div>
+      <p class="pcard-desc">An intelligent writing assistant designed to help users write better, faster. In active development.</p>
+      <div class="tags" style="margin-bottom:18px"><span class="tag">AI</span><span class="tag">Writing</span><span class="tag">In Development</span></div>
+      <div class="erow-top" onclick="toggleEssay('p2')" style="padding-top:2px">
+        <span style="font-size:13px;color:var(--muted);letter-spacing:.06em;font-family:'Jost',sans-serif;">The story behind it</span>
+        <span class="erow-arrow" id="arr-p2">↓</span>
+      </div>
+      <div class="essay-body" id="p2">
+        <p><strong style="font-weight:500;color:var(--text)">The Problem.</strong> Most people have something worth saying — but struggle to say it well. Not because they lack ideas, but because writing is hard. Existing AI tools either write everything for you (which loses your voice) or just fix grammar (which doesn't go far enough). There's nothing in between.</p>
+        <p><strong style="font-weight:500;color:var(--text)">Why I'm building it.</strong> I want Eranatis to sit in that middle ground — a tool that enhances how you write, not one that writes instead of you. It should understand your intent, help you structure your thoughts, and suggest improvements that still sound like you. Writing is thinking, and I don't want to automate thinking — I want to make it easier.</p>
+        <p><strong style="font-weight:500;color:var(--text)">What it will do for you.</strong> Whether you're writing an email, an essay, or a business proposal — Eranatis will help you get from idea to finished piece faster, without losing your voice. The goal is simple: you think, it helps you express. Better writing, still yours.</p>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="foot">
+      <span class="foot-copy">© 2026 Samarth Asati</span>
+      <div class="foot-links">
+        <a href="https://www.linkedin.com/in/samarth-asati" target="_blank">LinkedIn</a>
+        <a href="https://github.com/Samarth71" target="_blank">GitHub</a>
+        <a href="mailto:asatisam053@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ESSAYS -->
+<div class="page" id="page-essays">
+  <div class="wrap ph">
+    <h1 class="pt fi">Essays</h1>
+    <p class="ps fi">Long-form thoughts on AI, building, and the world.</p>
+  </div>
+  <div class="wrap">
+    <div class="erow fi">
+      <div class="erow-top" onclick="toggleEssay('e1')">
+        <div>
+          <div class="erow-title">Why AI will change everything</div>
+          <div class="erow-sub">And why most people aren't ready</div>
+          <div class="erow-meta">March 2026 · 4 min read</div>
+        </div>
+        <span class="erow-arrow" id="arr-e1">↓</span>
+      </div>
+      <div class="essay-body" id="e1">
+        <p>I've been thinking about this a lot lately. Everyone around me is talking about AI like it's just another tool — like the calculator, or the internet. Something that makes things faster. But I think they're missing the point completely.</p>
+        <p>AI isn't just making things faster. It's changing who gets to do things at all. A few years ago, if you wanted to build a health app, you needed a team of doctors, engineers, designers, maybe some investment. Today, I built Dr. Asati — an AI health assistant — mostly by myself, at 14, from Gondia. That's not a small thing. That's a fundamental shift in who gets to build.</p>
+        <p>Most people aren't ready because they're still thinking in the old model. They think the value is in knowing things — degrees, credentials, years of experience. But AI can know things too. The real value is going to be in judgment. In understanding what problem actually matters. In caring enough to solve it the right way.</p>
+        <p>The people who are going to fall behind aren't the ones who don't use AI. They're the ones who use it but don't think. Who let it replace their thinking instead of amplifying it. That's the trap.</p>
+        <p>I don't know exactly what the world looks like in ten years. Nobody does. But I know that the people building right now — even imperfectly, even slowly — are going to understand it better than anyone who just watched from the side. So I'm building.</p>
+      </div>
+    </div>
+
+    <div class="erow fi">
+      <div class="erow-top" onclick="toggleEssay('e2')">
+        <div>
+          <div class="erow-title">Building as a teenager</div>
+          <div class="erow-sub">What shipping real products teaches you</div>
+          <div class="erow-meta">February 2026 · 3 min read</div>
+        </div>
+        <span class="erow-arrow" id="arr-e2">↓</span>
+      </div>
+      <div class="essay-body" id="e2">
+        <p>Nobody tells you how weird it feels to ship something real for the first time. You've been working on it for weeks, maybe months. You've fixed the same bug three times. You've rewritten the whole thing once because you hated how it looked. And then one day you just... put it out there. And people use it.</p>
+        <p>That happened to me with Dr. Asati. I built it because I genuinely wanted something like it to exist — a simple way to understand health stuff without googling for an hour and ending up more confused. I didn't know if anyone else would care. Turns out some people did.</p>
+        <p>Here's what building taught me that nothing else has: the gap between "I think I know how to do this" and "I actually did it" is enormous. You don't see that gap in tutorials. Tutorials always work. Real projects don't. They break in weird ways, at weird times, for reasons you didn't expect. And the only way through is just sitting with it until you figure it out.</p>
+        <p>People ask me how I learned to code. I tell them I just started building things. That's genuinely it. Not courses, not certifications. Just: have a problem, try to solve it, fail a lot, eventually have something that works. The internet fills in the gaps. Stack Overflow and documentation and Claude fill in the rest.</p>
+        <p>I'm not saying this to sound impressive. I'm saying it because I think a lot of people are waiting for the right time, or the right amount of knowledge, before they start. There is no right time. Start now. Build something bad. It'll get better.</p>
+      </div>
+    </div>
+
+    <div class="erow fi">
+      <div class="erow-top" onclick="toggleEssay('e3')">
+        <div>
+          <div class="erow-title">On Innovation</div>
+          <div class="erow-sub">Ideas are cheap. Execution is everything.</div>
+          <div class="erow-meta">January 2026 · 2 min read</div>
+        </div>
+        <span class="erow-arrow" id="arr-e3">↓</span>
+      </div>
+      <div class="essay-body" id="e3">
+        <p>Everyone has ideas. Seriously, everyone. The person sitting next to you on the bus has an idea for an app. Your relatives at dinner have ideas for businesses. Ideas are not the scarce thing. They never were.</p>
+        <p>What's scarce is the willingness to actually do something about it. To sit down, open your laptop, and start — knowing it's going to be messy and slow and probably wrong at first. Most people never get there. They stay in the comfortable space of "what if I built this" without ever finding out what it would actually take.</p>
+        <p>Innovation, real innovation, is just execution repeated enough times that something new exists in the world. That's it. It's not a flash of genius. It's showing up and doing the work even when the work is frustrating and the results aren't there yet.</p>
+        <p>I've started thinking of innovation less like a talent and more like a habit. You do it enough times and it gets easier. The first time I built something from scratch it took forever. Now I move faster, not because I'm smarter, but because I've done it before and I know the shape of the process.</p>
+        <p>So if you have an idea — just start. The idea will change a hundred times once you actually touch it. That's fine. That's the whole point.</p>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="foot">
+      <span class="foot-copy">© 2026 Samarth Asati</span>
+      <div class="foot-links">
+        <a href="https://www.linkedin.com/in/samarth-asati" target="_blank">LinkedIn</a>
+        <a href="https://github.com/Samarth71" target="_blank">GitHub</a>
+        <a href="mailto:asatisam053@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- NOTES -->
+<div class="page" id="page-notes">
+  <div class="wrap ph">
+    <h1 class="pt fi">Notes</h1>
+    <p class="ps fi">Short thoughts, not fully formed.</p>
+  </div>
+  <div class="wrap">
+    <div class="note-row fi"><div class="note-date">9 May 2026</div><div class="note-text">Working on Eranatis. The hardest part isn't the code — it's figuring out what the user actually needs.</div></div>
+    <div class="note-row fi"><div class="note-date">1 May 2026</div><div class="note-text">Every project teaches you something no tutorial ever could.</div></div>
+    <div class="note-row fi"><div class="note-date">18 April 2026</div><div class="note-text">AI is not replacing thinkers. It's amplifying them. Build with it, not against it.</div></div>
+    <div class="note-row fi"><div class="note-date">10 April 2026</div><div class="note-text">The best products are the ones that solve a problem the maker themselves had.</div></div>
+    <div class="note-row fi"><div class="note-date">2 April 2026</div><div class="note-text">Shipping something imperfect is always better than perfecting something unshipped.</div></div>
+    <div class="note-row fi"><div class="note-date">20 March 2026</div><div class="note-text">People say "I'm too young to start." But every founder was young once, and started anyway.</div></div>
+    <div class="note-row fi"><div class="note-date">5 March 2026</div><div class="note-text">Failure builds character — but only if you stay in the game long enough to learn from it.</div></div>
+  </div>
+  <footer>
+    <div class="foot">
+      <span class="foot-copy">© 2026 Samarth Asati</span>
+      <div class="foot-links">
+        <a href="https://www.linkedin.com/in/samarth-asati" target="_blank">LinkedIn</a>
+        <a href="https://github.com/Samarth71" target="_blank">GitHub</a>
+        <a href="mailto:asatisam053@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="page-contact">
+  <div class="wrap ph">
+    <h1 class="pt fi">Contact</h1>
+    <p class="ps fi">Let's talk.</p>
+  </div>
+  <div class="wrap sec contact-block" style="padding-top:0">
+    <p class="contact-text fi">Feel free to reach out about projects, collaborations, or just to say hello. I'm always happy to connect.</p>
+    <div class="contact-links">
+      <div class="contact-link-row fi">
+        <span class="contact-link-label">Email</span>
+        <a href="mailto:asatisam053@gmail.com" class="contact-link">asatisam053@gmail.com</a>
+      </div>
+      <div class="contact-link-row fi">
+        <span class="contact-link-label">LinkedIn</span>
+        <a href="https://www.linkedin.com/in/samarth-asati" target="_blank" class="contact-link">samarth-asati</a>
+      </div>
+      <div class="contact-link-row fi">
+        <span class="contact-link-label">GitHub</span>
+        <a href="https://github.com/Samarth71" target="_blank" class="contact-link">Samarth71</a>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="foot">
+      <span class="foot-copy">© 2026 Samarth Asati</span>
+      <div class="foot-links">
+        <a href="https://www.linkedin.com/in/samarth-asati" target="_blank">LinkedIn</a>
+        <a href="https://github.com/Samarth71" target="_blank">GitHub</a>
+        <a href="mailto:asatisam053@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="page-about">
+  <div class="wrap ph">
+    <h1 class="pt fi">About</h1>
+    <p class="ps fi">Builder. Student. Tech Enthusiast. Learner</p>
+  </div>
+  <div class="wrap">
+    <div class="about-intro fi">
+      <div class="about-intro-text">
+        <p>I'm <strong>Samarth Asati</strong>, a Grade 10 student from Gondia, Maharashtra — passionate about AI, coding, and innovation. I enjoy building projects, experimenting with new technologies, and learning continuously to create practical solutions.</p>
+      </div>
+      <div class="about-stat-col">
+        <div class="about-stat">
+          <span class="about-stat-num">14</span>
+          <span class="about-stat-label">Years old</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-num">3+</span>
+          <span class="about-stat-label">Projects built</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-num">5</span>
+          <span class="about-stat-label">Certifications
+             <p> (Microsoft, Google, MyGov India and Webdeva)</p>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-section fi">
+      <div class="about-label">What I do</div>
+      <div class="about-roles">
+        <div class="role-row">
+          <span class="role-num">01</span>
+          <div>
+            <div class="role-title">Web Developer</div>
+            <div class="role-desc">Building websites and AI-powered web apps from scratch — Dr. Asati (healthcare), an Autonomous System Info site, and more.</div>
+          </div>
+        </div>
+        <div class="role-row">
+          <span class="role-num">02</span>
+          <div>
+            <div class="role-title">AI Explorer</div>
+            <div class="role-desc">Learning the basics of AI — DSA, LLMs, APIs. Building with these tools to understand how they actually work under the hood.</div>
+          </div>
+        </div>
+        <div class="role-row">
+          <span class="role-num">03</span>
+          <div>
+            <div class="role-title">Graphics Designer & Motion Artist</div>
+            <div class="role-desc">Creating visual and motion work manually — design projects done without AI recommendations, purely by hand.</div>
+          </div>
+        </div>
+        <div class="role-row">
+          <span class="role-num">04</span>
+          <div>
+            <div class="role-title">Startup Thinker</div>
+            <div class="role-desc">Developing startup ideas to gain real understanding of how businesses and products work. Combining technology and leadership to solve real-world problems.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-section fi">
+      <div class="about-label">Tools & Stack</div>
+      <div class="about-stack-grid">
+        <div class="stack-item"><span class="stack-name"><strong>HTML</strong></span></div>
+        <div class="stack-item"><span class="stack-name"><strong>CSS</strong></span></div>
+        <div class="stack-item"><span class="stack-name"><strong>Python</strong><i> (Learning)</i></span></div>
+        <div class="stack-item"><span class="stack-name"><strong>GitHub</strong></span></div>
+        <div class="stack-item"><span class="stack-name"><strong>Vercel</strong></span></div>
+      </div>
+    </div>
+
+    <div class="about-section fi">
+      <div class="about-label">Education</div>
+      <div class="about-edu-section">
+        <div>
+          <div class="about-edu-school">Star International School</div>
+          <div class="about-edu-detail">Grade 10 
+            · Gondia, Maharashtra</div>
+        </div>
+                <div class="about-edu-year">2024 – present</div>
+      </div>
+
+    </div>
+
+  <footer>
+    <div class="foot">
+      <span class="foot-copy">© 2026 Samarth Asati</span>
+      <div class="foot-links">
+        <a href="https://www.linkedin.com/in/samarth-asati" target="_blank">LinkedIn</a>
+        <a href="https://github.com/Samarth71" target="_blank">GitHub</a>
+        <a href="mailto:asatisam053@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  // Theme
+  const applyTheme = d => {
+    document.body.classList.toggle('dark', d);
+    document.getElementById('imoon').style.display  = d ? 'none'  : 'block';
+    document.getElementById('isun').style.display   = d ? 'block' : 'none';
+    document.getElementById('imoon2').style.display = d ? 'none'  : 'block';
+    document.getElementById('isun2').style.display  = d ? 'block' : 'none';
+  };
+  const toggleTheme = () => {
+    const d = !document.body.classList.contains('dark');
+    localStorage.setItem('theme', d ? 'dark' : 'light');
+    applyTheme(d);
+  };
+  applyTheme(localStorage.getItem('theme') === 'dark');
+
+  // Mobile menu
+  let mobileOpen = false;
+  function toggleMobileMenu() {
+    mobileOpen = !mobileOpen;
+    const menu = document.getElementById('mobile-menu');
+    const burger = document.getElementById('hamburger');
+    menu.classList.toggle('open', mobileOpen);
+    burger.classList.toggle('open', mobileOpen);
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+  }
+  function closeMobileMenu() {
+    mobileOpen = false;
+    document.getElementById('mobile-menu').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function mobileGoTo(id) {
+    closeMobileMenu();
+    goTo(id);
+  }
+
+  // Nav scroll
+  window.addEventListener('scroll', () =>
+    document.getElementById('nav').classList.toggle('scrolled', scrollY > 10));
+
+  // Router
+  let current = 'home';
+  const pages = ['home','about','projects','essays','notes','contact'];
+
+  function goTo(id) {
+    if (id === current) return;
+    const prev = document.getElementById('page-' + current);
+    prev.classList.remove('visible');
+    setTimeout(() => prev.classList.remove('active'), 420);
+
+    current = id;
+    window.scrollTo(0, 0);
+
+    pages.forEach(p => {
+      const btn = document.getElementById('n-' + p);
+      if (btn) btn.classList.toggle('active', p === id);
+    });
+
+    const next = document.getElementById('page-' + id);
+    next.classList.add('active');
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      next.classList.add('visible');
+      next.querySelectorAll('.fi').forEach((el, i) => {
+        el.classList.remove('vis');
+        setTimeout(() => el.classList.add('vis'), 60 + i * 65);
+      });
+    }));
+  }
+
+  // Essay accordion
+  function toggleEssay(id) {
+    const body = document.getElementById(id);
+    const arr  = document.getElementById('arr-' + id);
+    const isOpen = body.classList.contains('open');
+    body.classList.toggle('open', !isOpen);
+    arr.classList.toggle('open', !isOpen);
+  }
+
+  // Typewriter
+  const words = ['Builder.', 'Developer.', 'Creator.', 'Innovator.'];
+  let wi = 0, ci = 0, del = false;
+  const tw = document.getElementById('tw');
+  function type() {
+    const w = words[wi];
+    if (!del) {
+      tw.textContent = w.slice(0, ++ci);
+      if (ci === w.length) { del = true; setTimeout(type, 2000); return; }
+      setTimeout(type, 90);
+    } else {
+      tw.textContent = w.slice(0, --ci);
+      if (ci === 0) { del = false; wi = (wi + 1) % words.length; setTimeout(type, 350); return; }
+      setTimeout(type, 48);
+    }
+  }
+
+  // Init
+  (function init() {
+    const home = document.getElementById('page-home');
+    home.classList.add('active');
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      home.classList.add('visible');
+      home.querySelectorAll('.fi').forEach((el, i) =>
+        setTimeout(() => el.classList.add('vis'), 100 + i * 65));
+    }));
+    setTimeout(type, 1100);
+  })();
+</script>
+</body>
+</html>
