@@ -679,6 +679,29 @@
         background: var(--accent);
         color: var(--bg);
       }
+      .pcard-visit {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent);
+        border: 1px solid var(--hr);
+        border-radius: 3px;
+        padding: 6px 14px;
+        font-family: "Jost", sans-serif;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 0.2s, color 0.2s, border-color 0.2s;
+        margin-bottom: 20px;
+        cursor: pointer;
+      }
+      .pcard-visit:hover {
+        background: var(--accent);
+        color: var(--bg);
+        border-color: var(--accent);
+      }
 
       .erow {
         padding: 24px 0;
@@ -2064,6 +2087,16 @@
           </div>
           <div class="row-meta">2026</div>
         </button>
+        <button
+          class="row fi"
+          onclick="window.open('https://bill-guard-gamma.vercel.app/','_blank')"
+        >
+          <div class="row-info">
+            <div class="row-title">BillGuard India — AI Medical Bill Auditor</div>
+            <div class="row-desc">Audit hospital bills against fair-price benchmarks. Fight overcharges.</div>
+          </div>
+          <div class="row-meta">2026</div>
+        </button>
       </div>
       <div class="wrap">
         <div class="divider fi">
@@ -2348,10 +2381,11 @@
             An AI-powered health assistant that helps users understand medical
             queries, symptoms, and general health information.
           </p>
-          <div class="tags" style="margin-bottom: 18px">
+          <div class="tags" style="margin-bottom: 12px">
             <span class="tag">AI</span><span class="tag">Health</span
             ><span class="tag">Web</span>
           </div>
+          <a href="https://dr-asatiii.vercel.app/" target="_blank" class="pcard-visit">Visit Website ↗</a>
           <div
             class="erow-top"
             onclick="toggleEssay('p1')"
@@ -2406,11 +2440,12 @@
             A messaging app where you can chat with anyone without adding a
             phone number. End-to-end encrypted, simple, and open to all.
           </p>
-          <div class="tags" style="margin-bottom: 18px">
+          <div class="tags" style="margin-bottom: 12px">
             <span class="tag">Web</span><span class="tag">Messaging</span
             ><span class="tag">Privacy</span
             ><span class="tag">E2E Encrypted</span>
           </div>
+          <a href="https://megmee.vercel.app/" target="_blank" class="pcard-visit">Visit Website ↗</a>
           <div
             class="erow-top"
             onclick="toggleEssay('p3')"
@@ -2465,10 +2500,11 @@
             An intelligent writing assistant designed to help users write
             better, faster — without losing their voice.
           </p>
-          <div class="tags" style="margin-bottom: 18px">
+          <div class="tags" style="margin-bottom: 12px">
             <span class="tag">AI</span><span class="tag">Writing</span
             ><span class="tag">Web</span>
           </div>
+          <a href="https://eranalum-in.vercel.app/" target="_blank" class="pcard-visit">Visit Website ↗</a>
           <div
             class="erow-top"
             onclick="toggleEssay('p2')"
@@ -2507,6 +2543,68 @@
               Whether you're writing an email, an essay, or a business proposal
               — Eranatis will help you get from idea to finished piece faster,
               without losing your voice.
+            </p>
+          </div>
+        </div>
+        <div class="pcard fi">
+          <div class="pcard-top">
+            <div class="pcard-title">
+              <a href="https://bill-guard-gamma.vercel.app/" target="_blank"
+                >BillGuard India — AI Medical Bill Auditor ↗</a
+              >
+            </div>
+            <div class="pcard-year">2026</div>
+          </div>
+          <p class="pcard-desc">
+            An AI tool that audits medical bills against national fair-pricing
+            benchmarks and generates formal dispute letters and phone scripts to
+            fight hospital overcharges in India.
+          </p>
+          <div class="tags" style="margin-bottom: 12px">
+            <span class="tag">AI</span><span class="tag">Health</span
+            ><span class="tag">Finance</span
+            ><span class="tag">India</span>
+          </div>
+          <a href="https://bill-guard-gamma.vercel.app/" target="_blank" class="pcard-visit">Visit Website ↗</a>
+          <div
+            class="erow-top"
+            onclick="toggleEssay('p4')"
+            style="padding-top: 2px"
+          >
+            <span
+              style="
+                font-size: 13px;
+                color: var(--muted);
+                letter-spacing: 0.06em;
+                font-family: &quot;Jost&quot;, sans-serif;
+              "
+              >The story behind it</span
+            ><span class="erow-arrow" id="arr-p4">↓</span>
+          </div>
+          <div class="essay-body" id="p4">
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
+                >The Problem.</strong
+              >
+              Medical bills in India are notoriously opaque. Hospitals routinely
+              overcharge for procedures — and most patients have no idea what
+              the fair price even is.
+            </p>
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
+                >Why I built it.</strong
+              >
+              I wanted to give ordinary people the same leverage that informed
+              patients and healthcare advocates have — real benchmark data,
+              and the exact words to use when disputing a bill.
+            </p>
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
+                >What it does for you.</strong
+              >
+              Enter your bill, and BillGuard flags overcharged procedures using
+              national pricing data, then generates a formal dispute letter and
+              a phone script — ready to send or read out.
             </p>
           </div>
         </div>
@@ -3642,6 +3740,115 @@
 
       <h2>Conclusion</h2>
       <p>Firestore's <code>onSnapshot</code> is one of the most underrated features in web development. Real-time sync that works across devices, survives reconnects, handles offline state — without running a WebSocket server. Combined with the Web Crypto API for end-to-end encryption, you can build genuinely private real-time apps entirely on Firebase's free tier. Megmee is live at <a href="https://megmee.vercel.app/" target="_blank" style="color:var(--accent)">megmee.vercel.app →</a></p>`
+        },
+
+        // ── POST 5 — BILLGUARD ──────────────────────
+        {
+          title: "How I Built BillGuard India — Fighting Hospital Overcharges with AI",
+          subtitle: "Using AI and public pricing data to give patients the leverage they deserve",
+          date: "May 28, 2026", readtime: "10 min read",
+          tags: ["AI", "Build Log", "Healthcare", "India"],
+          body: `
+      <h2>The Problem</h2>
+      <p>Medical bills in India are almost completely opaque. Walk into any private hospital, and you'll likely be charged whatever the billing department decides that day. For the same procedure, two hospitals in the same city can charge 3–10× different amounts.</p>
+      <p>Most patients just pay. They don't know what the "right" price is, they're stressed, and arguing with a hospital billing desk feels impossible. I wanted to change that — with real data, not just outrage.</p>
+
+      <h2>What BillGuard Does</h2>
+      <p>BillGuard audits your medical bill against national fair-pricing benchmarks. You enter the procedures billed and the amounts charged. BillGuard flags anything above a reasonable benchmark, calculates exactly how much you were overcharged, then generates a formal dispute letter and a phone script — ready to use.</p>
+
+      <div class="arch-wrap">
+        <div class="arch-label-top">Core User Flow</div>
+        <div class="arch-diagram">1. User enters procedure names / codes
+2. Fuzzy autocomplete matches against procedure database
+3. System retrieves CGHS + private-market benchmarks for city tier
+4. Deterministic audit: billed vs benchmark, delta, severity flag
+5. Gemini generates formal dispute letter (cites relevant consumer law)
+6. Gemini generates phone script (opening, key arguments, closing ask)
+7. User copies, sends, or reads out — dispute ready in under 2 minutes</div>
+      </div>
+
+      <h2>The Stack</h2>
+
+      <div class="arch-wrap">
+        <div class="arch-label-top">Tech Stack — BillGuard India</div>
+        <div class="arch-diagram">Frontend   : Vanilla HTML / CSS / JS  (single file, zero dependencies)
+      AI Layer   : Gemini 1.5 Flash        (letter + script generation)
+      Pricing DB : CGHS rate list + private hospital survey data (static JSON)
+      Autocomplete: Custom fuzzy matcher over 200+ procedure codes + aliases
+      Deployment : Vercel  (static hosting, &lt;1s load on 3G)
+      Styling    : CSS custom properties  (light/dark ready)</div>
+      </div>
+
+      <h2>Why Vanilla JS</h2>
+      <p>My previous projects — Eranatis, Dr. Asati — used Next.js. For BillGuard I chose no framework at all. The entire app is a single HTML file with inline CSS and JS.</p>
+      <p>The reason is distribution. BillGuard is a tool people share on WhatsApp after receiving a shocking hospital bill. It needs to open instantly on a bad mobile connection, work without heavy JavaScript bundles, and feel lightweight. Next.js would add 300 KB of framework overhead before my first line of code ran. A single HTML file starts in milliseconds. On 3G the difference is visible.</p>
+      <p>The tradeoff: I had to write more boilerplate by hand. Worth it completely for this use case.</p>
+
+      <h2>The Pricing Database</h2>
+      <p>The hardest part wasn't the code — it was finding trustworthy benchmarks. I used three sources:</p>
+      <ul>
+        <li><strong>CGHS rates</strong> — the Central Government Health Scheme publishes official rate lists for 1,500+ procedures. These are what government-insured patients get charged, and they serve as a reliable lower-bound "fair price."</li>
+        <li><strong>NABH-accredited hospital surveys</strong> — public data on what accredited private hospitals charge for common procedures in Tier 1, Tier 2, and Tier 3 cities.</li>
+        <li><strong>User-reported data</strong> — a growing set of real bills shared by early users, used to validate and extend the database.</li>
+      </ul>
+      <p>All of this is stored as a static JSON file — no database, no API calls on load. This keeps the app fast and functional even offline once cached.</p>
+
+      <h2>The Audit Logic</h2>
+      <p>The audit itself is deterministic — pure JavaScript math. No AI. I deliberately kept AI out of the pricing decision because that needed to be transparent and reproducible. The logic is:</p>
+
+      <div class="arch-wrap">
+        <div class="arch-label-top">Audit Algorithm</div>
+        <div class="arch-diagram">For each billed procedure:
+        1. Match to database record  (fuzzy + alias lookup)
+        2. Get city-tier benchmark   (Tier 1 / 2 / 3 multiplier)
+        3. delta = billed - benchmark
+        4. overcharge_pct = (delta / benchmark) × 100
+        5. severity:
+           &lt;  20% above benchmark  →  Fair
+           20–60% above benchmark  →  Moderate (flag)
+           &gt;  60% above benchmark  →  Critical (dispute recommended)
+        6. Aggregate total savings estimate</div>
+      </div>
+
+      <h2>The AI Layer — Letters and Scripts</h2>
+      <p>Once the audit is complete, AI comes in at the output stage. Gemini generates two things: a formal dispute letter and a phone negotiation script. This is where AI genuinely earns its place — dispute letters need to cite specific laws, be formally structured, and be tailored to the exact overcharges found. I can't do that deterministically for every possible combination of procedures and severity levels.</p>
+
+      <div class="arch-wrap">
+        <div class="arch-label-top">Gemini Prompt — Dispute Letter</div>
+        <div class="arch-diagram">Input:
+        - Hospital name + city
+        - Patient name
+        - List of flagged items: procedure, billed, benchmark, delta, severity
+        - Total overcharge amount
+        - Preferred tone (firm / polite)
+
+      Output:
+        - Formal letter addressed to Billing Head
+        - Cites: Consumer Protection Act 2019,
+                 Clinical Establishments Act 2010,
+                 NMC guidelines on fee transparency
+        - Requests itemised justification within 15 days
+        - Copies to: District Consumer Forum (if critical overcharge)</div>
+      </div>
+
+      <h2>The Procedure Matching Problem</h2>
+      <p>The single hardest technical challenge was matching free-text procedure names from real bills to database entries. Indian hospital bills are inconsistent in ways that defeat simple string matching:</p>
+      <ul>
+        <li>"CBC", "Complete Blood Count", "Haemogram", "Blood Panel", "FBC" — all the same test.</li>
+        <li>"ECG", "EKG", "Electrocardiogram", "12-lead ECG" — same procedure, four names.</li>
+        <li>Typos and abbreviations with no standard form.</li>
+      </ul>
+      <p>I built a fuzzy matcher with an alias dictionary. Each procedure in the database maps to 3–8 alternate names. The matcher first tries exact match, then prefix match, then Levenshtein distance up to 2, then alias scan. This gets &gt;94% hit rate on a test set of 200 real bill line items.</p>
+
+      <h2>Regional Price Variance</h2>
+      <p>A CT scan that costs ₹3,000 in Gondia costs ₹12,000 in Mumbai. Applying the same benchmark everywhere produces too many false positives in Tier 1 cities and misses real overcharges in Tier 3 cities.</p>
+      <p>The fix: city-tier multipliers. Every benchmark has a base rate (Tier 3) and multipliers for Tier 2 (1.6×) and Tier 1 (2.8×). The user selects their city, and benchmarks adjust accordingly. This reduced false positives by ~60% in testing.</p>
+
+      <h2>Lessons</h2>
+      <p><strong>Static-first is underrated.</strong> No server, no database, no API calls at load — just a file that does its job. BillGuard loads in under a second on 3G. That matters more than any framework feature for this use case.</p>
+      <p><strong>Keep AI out of the critical path.</strong> The audit result is deterministic and explainable. AI only touches the output layer — letters and scripts. If Gemini goes down, the audit still works. Users get value either way.</p>
+      <p><strong>The problem you've lived is the problem you solve best.</strong> A family member received a bill after a hospitalisation that seemed inflated — but we had no way to verify it. BillGuard exists because that information asymmetry shouldn't exist. Every patient deserves to know what they should be paying.</p>
+      <p>BillGuard is live at <a href="https://bill-guard-gamma.vercel.app/" target="_blank" style="color:var(--accent)">bill-guard-gamma.vercel.app →</a></p>`
         }
       ];
 
