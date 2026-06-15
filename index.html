@@ -2097,6 +2097,16 @@
           </div>
           <div class="row-meta">2026</div>
         </button>
+        <button
+          class="row fi"
+          onclick="window.open('https://spam-sentryy.vercel.app/','_blank')"
+        >
+          <div class="row-info">
+            <div class="row-title">ScamSentry — Email & Message Fraud Checker</div>
+            <div class="row-desc">Paste any email, message, or link. Get an instant trust score.</div>
+          </div>
+          <div class="row-meta">2026</div>
+        </button>
       </div>
       <div class="wrap">
         <div class="divider fi">
@@ -2417,24 +2427,57 @@
               <strong style="font-weight: 500; color: var(--text)"
                 >The Problem.</strong
               >
-              People around me — family, neighbours — would either ignore
-              symptoms or spend hours on Google, ending up more confused and
-              scared than before.
+              People around me — family, neighbours, relatives in smaller towns
+              — would either ignore symptoms for weeks or spend hours searching
+              Google, only to come out more anxious and confused than before.
+              They weren't looking for a diagnosis. They just wanted someone to
+              help them make sense of what they were feeling and tell them
+              whether it was serious enough to see a doctor.
             </p>
             <p>
               <strong style="font-weight: 500; color: var(--text)"
                 >Why I built it.</strong
               >
-              I wanted something that felt like asking a knowledgeable friend —
-              not a medical textbook.
+              I've watched family members dismiss symptoms they should have
+              acted on, and panic over ones that were completely harmless —
+              simply because they had no way to get a calm, informed second
+              opinion without booking an appointment. I wanted to build
+              something that felt less like a search engine and more like asking
+              a knowledgeable friend — one who speaks plainly, doesn't
+              overwhelm you with medical jargon, and knows when to say "go see
+              a doctor today" versus "this sounds fine, monitor it."
+            </p>
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
+                >How it works.</strong
+              >
+              Dr. Asati is powered by a large language model fine-tuned with
+              health-focused prompting. Every response is deliberately kept
+              conversational — no bullet-point walls of text, no cold clinical
+              language. I spent a lot of time on the prompt design to make sure
+              it never overstates certainty, never dismisses symptoms without
+              reason, and always reminds users that it's a first step, not a
+              final answer.
             </p>
             <p>
               <strong style="font-weight: 500; color: var(--text)"
                 >What it does for you.</strong
               >
-              Dr. Asati helps you understand what your symptoms might mean, what
-              questions to ask your doctor, and whether something needs urgent
-              attention.
+              Describe your symptoms in plain language and Dr. Asati will help
+              you understand what they might indicate, what questions to bring
+              to your doctor, what warning signs to watch for, and whether
+              something needs attention today or can wait. It won't replace a
+              doctor — but it'll make sure you walk into that appointment
+              informed instead of scared.
+            </p>
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
+                >What I learned.</strong
+              >
+              Building in the health space forces you to think hard about
+              responsibility. Every design choice — how confident the tone
+              sounds, what words you use, when to escalate — carries real
+              weight. It made me a more careful engineer.
             </p>
           </div>
         </div>
@@ -2475,26 +2518,54 @@
           <div class="essay-body" id="p3">
             <p>
               <strong style="font-weight: 500; color: var(--text)"
+                >The Problem.</strong
+              >
+              Every major messaging app today treats your phone number as the
+              price of entry. WhatsApp, Telegram, Signal — all of them ask for
+              it upfront. That's fine if you want a permanent contact. But
+              sometimes you just want to have a quick, private conversation with
+              someone without swapping personal details or creating an account
+              that lives forever.
+            </p>
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
                 >Why I built it.</strong
               >
-              Most messaging apps require a phone number just to start a
-              conversation. I wanted something simpler — open a link, start
-              chatting.
+              I kept running into situations — online communities, new
+              acquaintances, collaborations — where I wanted to message someone
+              without the friction of "add me on WhatsApp." I wanted a tool that
+              was genuinely zero-friction: no sign-up, no download, no phone
+              number. Just open a link and talk. So I built one.
+            </p>
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
+                >How it works.</strong
+              >
+              Megmee uses Firebase Firestore for real-time message sync and
+              implements end-to-end encryption so messages are encrypted on your
+              device before they ever reach the server. The server never sees
+              your plaintext. I built live presence indicators so you can see
+              when someone is typing, and designed the UI to feel as clean and
+              instant as a native app — despite running entirely in the browser.
             </p>
             <p>
               <strong style="font-weight: 500; color: var(--text)"
                 >What you get.</strong
               >
-              Megmee is end-to-end encrypted, so your conversations stay
-              private. No phone number, no account, no drama.
+              Create a room, share the link, start chatting. End-to-end
+              encrypted, real-time, no account required, no phone number, no
+              install. Works on any device with a browser. When you're done,
+              close the tab — no trace left.
             </p>
             <p>
               <strong style="font-weight: 500; color: var(--text)"
                 >What building it taught me.</strong
               >
-              Building Megmee taught me more about how the web actually works —
-              encryption, real-time communication, user experience — than any
-              course ever could.
+              Megmee was the project where real-time architecture finally clicked
+              for me. I had to think hard about data modelling for live sync,
+              keeping Firestore costs near zero on the free tier, and how to
+              design security rules that actually hold up. It taught me more
+              about how the web works under the hood than any course ever could.
             </p>
           </div>
         </div>
@@ -2536,24 +2607,54 @@
               <strong style="font-weight: 500; color: var(--text)"
                 >The Problem.</strong
               >
-              Most people have something worth saying — but struggle to say it
-              well. Existing AI tools either write everything for you or just
-              fix grammar.
+              Most people have something worth saying — they just struggle to
+              say it well. The existing landscape gives you two bad options:
+              tools like ChatGPT that write the whole thing for you (and it
+              sounds like ChatGPT, not you), or grammar checkers that fix typos
+              but leave your ideas untouched. There's almost nothing that sits
+              in the middle — something that sharpens your thinking, helps you
+              structure ideas, and makes your writing sound like the best
+              version of you.
             </p>
             <p>
               <strong style="font-weight: 500; color: var(--text)"
                 >Why I'm building it.</strong
               >
-              I want Eranatis to sit in that middle ground — a tool that
-              enhances how you write, not one that writes instead of you.
+              I noticed that the best writing advice — "cut this sentence,"
+              "this paragraph buries your main point," "this word is doing no
+              work" — rarely comes from tools. It comes from good editors and
+              thoughtful readers. Eranatis is my attempt to make that kind of
+              feedback available to anyone, not just people with access to
+              editors. I want it to feel like a collaborator, not a ghostwriter.
+            </p>
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
+                >How I'm building it.</strong
+              >
+              The core challenge is preserving voice. I've spent significant
+              time on the prompting layer — making sure Eranatis suggests and
+              questions rather than overwrites. The interface is deliberately
+              minimal: a clean editor where AI suggestions appear as options,
+              not automatic replacements. You stay in control of every word.
             </p>
             <p>
               <strong style="font-weight: 500; color: var(--text)"
                 >What it will do for you.</strong
               >
-              Whether you're writing an email, an essay, or a business proposal
-              — Eranatis will help you get from idea to finished piece faster,
-              without losing your voice.
+              Whether you're writing a cold email, a college essay, a blog post,
+              or a business proposal — Eranatis will help you move from a rough
+              idea to a finished piece faster, flag where your argument loses
+              momentum, suggest stronger word choices, and tighten your
+              structure. The goal: your ideas, expressed better.
+            </p>
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
+                >Where it's at.</strong
+              >
+              Eranatis is actively in development. The core writing experience
+              is live — I'm currently working on deeper context awareness and
+              personalisation features that adapt to your individual writing
+              style over time.
             </p>
           </div>
         </div>
@@ -2561,18 +2662,18 @@
           <div class="pcard-top">
             <div class="pcard-title">
               <a href="https://bill-guard-gamma.vercel.app/" target="_blank"
-                >BillGuard India — AI Medical Bill Auditor ↗</a
+                >BillGuard India —  Medical Bill Auditor ↗</a
               >
             </div>
             <div class="pcard-year">2026</div>
           </div>
           <p class="pcard-desc">
-            An AI tool that audits medical bills against national fair-pricing
+            An  tool that audits medical bills against national fair-pricing
             benchmarks and generates formal dispute letters and phone scripts to
             fight hospital overcharges in India.
           </p>
           <div class="tags" style="margin-bottom: 12px">
-            <span class="tag">AI</span><span class="tag">Health</span
+            <span class="tag">Web</span><span class="tag">Health</span
             ><span class="tag">Finance</span
             ><span class="tag">India</span>
           </div>
@@ -2598,24 +2699,161 @@
                 >The Problem.</strong
               >
               Medical bills in India are notoriously opaque. Hospitals routinely
-              overcharge for procedures — and most patients have no idea what
-              the fair price even is.
+              charge several times the fair rate for procedures, and most
+              patients pay without question — either because they don't know
+              what the fair price is, or because they don't feel empowered to
+              push back. The information asymmetry is enormous: a well-connected
+              patient or healthcare advocate knows exactly what to demand.
+              Everyone else just pays.
             </p>
             <p>
               <strong style="font-weight: 500; color: var(--text)"
                 >Why I built it.</strong
               >
-              I wanted to give ordinary people the same leverage that informed
-              patients and healthcare advocates have — real benchmark data,
-              and the exact words to use when disputing a bill.
+              This hit close to home. Watching family members get handed
+              hospital bills with no way to verify whether the charges were
+              legitimate — and no idea what recourse they had — made me angry.
+              The data to fight these overcharges exists publicly (CGHS rates,
+              state health scheme benchmarks) but it's buried in government PDFs
+              that nobody knows about. I wanted to take that data, make it
+              searchable, and give people the exact words to use when they
+              dispute a bill.
+            </p>
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
+                >How it works.</strong
+              >
+              I built a pricing database from CGHS (Central Government Health
+              Scheme) rates and mapped them across city tiers, since costs in
+              Mumbai are different from costs in a Tier-2 city. The audit engine
+              uses fuzzy procedure matching — so "knee replacement" and "total
+              knee arthroplasty" resolve to the same benchmark — and flags any
+              line item that exceeds the fair-price threshold for your location.
+              Gemini then takes the flagged items and generates a formal dispute
+              letter and a phone script tailored to your specific bill, ready
+              to send or read out.
             </p>
             <p>
               <strong style="font-weight: 500; color: var(--text)"
                 >What it does for you.</strong
               >
-              Enter your bill, and BillGuard flags overcharged procedures using
-              national pricing data, then generates a formal dispute letter and
-              a phone script — ready to send or read out.
+              Upload or paste your bill, select your city tier, and BillGuard
+              will tell you which procedures were overcharged, by how much, and
+              what the benchmark price is. Then it hands you a ready-to-send
+              dispute letter and a phone script — so you can fight back
+              immediately, with evidence, in language that hospitals take
+              seriously.
+            </p>
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
+                >What I learned.</strong
+              >
+              The hardest part wasn't the AI — it was the data. Building a
+              reliable pricing database from inconsistent government PDFs, then
+              writing a fuzzy matcher good enough to handle the chaos of
+              real-world medical billing terminology, took far longer than
+              expected. It taught me that for civic tech, the data layer is
+              everything.
+            </p>
+          </div>
+        </div>
+        <div class="pcard fi">
+          <div class="pcard-top">
+            <div class="pcard-title">
+              <a href="https://spam-sentryy.vercel.app/" target="_blank"
+                >ScamSentry — Email & Message Fraud Checker ↗</a
+              >
+            </div>
+            <div class="pcard-year">2026</div>
+          </div>
+          <p class="pcard-desc">
+            A free, browser-based security tool that scans emails, messages,
+            and links for signs of phishing and fraud. Runs entirely on-device —
+            no data ever leaves your browser. Returns a 0–100 trust score with
+            plain-language explanations.
+          </p>
+          <div class="tags" style="margin-bottom: 12px">
+            <span class="tag">Security</span><span class="tag">Privacy</span
+            ><span class="tag">Browser</span
+            ><span class="tag">Fraud Detection</span>
+          </div>
+          <a href="https://spam-sentryy.vercel.app/" target="_blank" class="pcard-visit">Visit Website ↗</a>
+          <div
+            class="erow-top"
+            onclick="toggleEssay('p5')"
+            style="padding-top: 2px"
+          >
+            <span
+              style="
+                font-size: 13px;
+                color: var(--muted);
+                letter-spacing: 0.06em;
+                font-family: &quot;Jost&quot;, sans-serif;
+              "
+              >The story behind it</span
+            ><span class="erow-arrow" id="arr-p5">↓</span>
+          </div>
+          <div class="essay-body" id="p5">
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
+                >The Problem.</strong
+              >
+              Scam messages are getting frighteningly good. The days of obvious
+              "Nigerian prince" emails are long gone — modern phishing copies
+              real brand emails pixel-for-pixel, spoofs legitimate-looking
+              domains, and uses psychological pressure ("your account will be
+              suspended in 24 hours") to bypass your better judgment. Most
+              people have no quick, private way to check a suspicious message
+              before clicking a link or typing in a password.
+            </p>
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
+                >Why I built it.</strong
+              >
+              Every existing tool I found either required you to create an
+              account, upload your message to a server, or wait for a slow scan.
+              None of that is acceptable when you're holding a message that
+              might contain your bank credentials. I wanted something that runs
+              entirely in your browser — instant, private, zero data leaving
+              your device — that could give a plain-language verdict in seconds.
+            </p>
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
+                >How it works.</strong
+              >
+              ScamSentry runs a layered heuristic analysis entirely on your
+              device. It checks sender email addresses for lookalike domains
+              (e.g. "paypa1.com" vs "paypal.com"), flags free email providers
+              impersonating brands, scans message text for urgency patterns
+              ("act now", "verify immediately"), threats, generic greetings, and
+              explicit requests for passwords or OTPs. For links, it checks for
+              raw IP addresses, missing HTTPS, redirect chains via shorteners,
+              and domain age signals. Each signal is weighted and combined into
+              a 0–100 trust score with a plain-language explanation of exactly
+              what triggered it.
+            </p>
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
+                >What it does for you.</strong
+              >
+              Paste a suspicious email, message, or link — or drag in a .txt,
+              .eml, .msg, or .html file — and ScamSentry gives you a trust score,
+              a risk verdict (Safe / Suspicious / Likely Scam), and a breakdown
+              of every red flag it found. No account, no sign-up, no data ever
+              sent anywhere. Works on any device with a browser.
+            </p>
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
+                >What I learned.</strong
+              >
+              Building a heuristic engine is humbling. You quickly realise that
+              clever scams will always slip through pattern-matching — which is
+              why I was careful to frame ScamSentry as a "helpful first check,"
+              not a security guarantee. Getting the trust score calibrated so it
+              doesn't cry wolf on legitimate emails — but still catches real
+              threats — required a lot of tuning and real-world test cases.
+              The UX lesson: when dealing with security tools, plain language
+              and honest limitations build more trust than false confidence.
             </p>
           </div>
         </div>
