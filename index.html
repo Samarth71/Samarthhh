@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta name="google-site-verification" content="q18oYJD-zLnYm7NneZctI4UGZ8P0NkLJgnqV60Mz78w" />
     <title>Samarth Asati | Student & Tech Enthusiast</title>
     <meta
       name="description"
@@ -2108,6 +2107,16 @@
           </div>
           <div class="row-meta">2026</div>
         </button>
+        <button
+          class="row fi"
+          onclick="window.open('https://nutritrackk-diett.vercel.app/','_blank')"
+        >
+          <div class="row-info">
+            <div class="row-title">NutriTrackk Diett — AI Nutrition Tracker</div>
+            <div class="row-desc">Track your diet, monitor nutrition goals, and stay consistent.</div>
+          </div>
+          <div class="row-meta">2026</div>
+        </button>
       </div>
       <div class="wrap">
         <div class="divider fi">
@@ -2165,6 +2174,17 @@
             </div>
           </div>
           <div class="row-meta">May 2026</div>
+        </button>
+        <button class="row fi" onclick="openBlogPost(6)">
+          <div class="row-info">
+            <div class="row-title">
+              How I Built NutriTrackk Diett — Making Nutrition Tracking Actually Work
+            </div>
+            <div class="row-desc">
+              Natural-language food logging, Grok API, Indian food, and habit design
+            </div>
+          </div>
+          <div class="row-meta">Jun 2026</div>
         </button>
       </div>
       <div class="wrap">
@@ -2663,18 +2683,18 @@
           <div class="pcard-top">
             <div class="pcard-title">
               <a href="https://bill-guard-gamma.vercel.app/" target="_blank"
-                >BillGuard India —  Medical Bill Auditor ↗</a
+                >BillGuard India — AI Medical Bill Auditor ↗</a
               >
             </div>
             <div class="pcard-year">2026</div>
           </div>
           <p class="pcard-desc">
-            An  tool that audits medical bills against national fair-pricing
+            An AI tool that audits medical bills against national fair-pricing
             benchmarks and generates formal dispute letters and phone scripts to
             fight hospital overcharges in India.
           </p>
           <div class="tags" style="margin-bottom: 12px">
-            <span class="tag">Web</span><span class="tag">Health</span
+            <span class="tag">AI</span><span class="tag">Health</span
             ><span class="tag">Finance</span
             ><span class="tag">India</span>
           </div>
@@ -2855,6 +2875,96 @@
               threats — required a lot of tuning and real-world test cases.
               The UX lesson: when dealing with security tools, plain language
               and honest limitations build more trust than false confidence.
+            </p>
+          </div>
+        </div>
+        <div class="pcard fi">
+          <div class="pcard-top">
+            <div class="pcard-title">
+              <a href="https://nutritrackk-diett.vercel.app/" target="_blank"
+                >NutriTrackk Diett — AI Nutrition Tracker ↗</a
+              >
+            </div>
+            <div class="pcard-year">2026</div>
+          </div>
+          <p class="pcard-desc">
+            A modern web app that makes healthy living simple, personalised,
+            and actionable. Track your diet, monitor nutrition goals, and stay
+            consistent with your wellness journey — powered by the Grok API.
+          </p>
+          <div class="tags" style="margin-bottom: 12px">
+            <span class="tag">AI</span><span class="tag">Health</span
+            ><span class="tag">Nutrition</span
+            ><span class="tag">Grok</span>
+          </div>
+          <a href="https://nutritrackk-diett.vercel.app/" target="_blank" class="pcard-visit">Visit Website ↗</a>
+          <div
+            class="erow-top"
+            onclick="toggleEssay('p6')"
+            style="padding-top: 2px"
+          >
+            <span
+              style="
+                font-size: 13px;
+                color: var(--muted);
+                letter-spacing: 0.06em;
+                font-family: &quot;Jost&quot;, sans-serif;
+              "
+              >The story behind it</span
+            ><span class="erow-arrow" id="arr-p6">↓</span>
+          </div>
+          <div class="essay-body" id="p6">
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
+                >The Problem.</strong
+              >
+              Most people who want to eat healthier run into the same wall:
+              calorie apps are tedious, nutrition labels are confusing, and
+              generic meal plans don't fit real life. Healthy eating advice is
+              everywhere — but personalised, actionable guidance that adapts to
+              what you actually eat is almost nowhere.
+            </p>
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
+                >Why I built it.</strong
+              >
+              I wanted to build something that removed the friction from
+              tracking entirely. No manual calorie counting, no lookup tables,
+              no meal plans that assume you cook every meal from scratch.
+              NutriTrackk is designed to meet you where you are — tell it what
+              you ate, and it handles the rest.
+            </p>
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
+                >How it works.</strong
+              >
+              The app is powered by the Grok API, which handles natural-language
+              food input — so you can say "a bowl of dal and two rotis" and it
+              understands. It extracts nutritional data, tracks it against your
+              daily goals, and surfaces trends over time so you can see where
+              your diet is actually falling short, not just guess.
+            </p>
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
+                >What it does for you.</strong
+              >
+              Log meals in plain language, see a real-time breakdown of
+              calories, protein, carbs, and fat, and get personalised
+              suggestions to hit your goals. The interface is clean and fast —
+              built so that tracking takes seconds, not minutes, making it
+              something you'll actually keep doing.
+            </p>
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
+                >What I learned.</strong
+              >
+              Working with the Grok API pushed me to think carefully about how
+              to handle ambiguous food descriptions without frustrating the user.
+              The challenge isn't the happy path — it's what happens when
+              someone logs "some snacks" or a regional dish the model hasn't
+              seen often. Graceful degradation and smart clarifying prompts
+              ended up being the most important UX decisions in the whole
+              project.
             </p>
           </div>
         </div>
@@ -3117,6 +3227,27 @@
                 <span class="tag">AI</span><span class="tag">Build Log</span
                 ><span class="tag">Healthcare</span
                 ><span class="tag">India</span>
+              </div>
+              <span class="blog-arrow">→</span>
+            </div>
+          </div>
+          <div class="blog-card fi" onclick="openBlogPost(6)">
+            <div class="blog-card-top">
+              <div class="blog-card-title">
+                How I Built NutriTrackk Diett — Making Nutrition Tracking Actually Work
+              </div>
+              <div class="blog-card-date">June 2026</div>
+            </div>
+            <div class="blog-card-desc">
+              Why every nutrition app failed me, how I used the Grok API to
+              make natural-language food logging work for Indian meals, and
+              what I learned about building for consistency.
+            </div>
+            <div class="blog-card-footer">
+              <div class="tags">
+                <span class="tag">AI</span><span class="tag">Build Log</span
+                ><span class="tag">Health</span
+                ><span class="tag">Grok</span>
               </div>
               <span class="blog-arrow">→</span>
             </div>
@@ -4120,6 +4251,116 @@
       <p><strong>Keep AI out of the critical path.</strong> The audit result is deterministic and explainable. AI only touches the output layer — letters and scripts. If Gemini goes down, the audit still works. Users get value either way.</p>
       <p><strong>The problem you've lived is the problem you solve best.</strong> A family member received a bill after a hospitalisation that seemed inflated — but we had no way to verify it. BillGuard exists because that information asymmetry shouldn't exist. Every patient deserves to know what they should be paying.</p>
       <p>BillGuard is live at <a href="https://bill-guard-gamma.vercel.app/" target="_blank" style="color:var(--accent)">bill-guard-gamma.vercel.app →</a></p>`
+        },
+        {
+          title: "How I Built NutriTrackk Diett — Making Nutrition Tracking Actually Work",
+          subtitle: "Using the Grok API and natural-language food logging to remove every excuse not to track",
+          date: "June 2026", readtime: "12 min read",
+          tags: ["AI", "Build Log", "Health", "Nutrition", "Grok"],
+          body: `
+      <h2>Why I Started This</h2>
+      <p>I've tried a lot of calorie-tracking apps. MyFitnessPal, Cronometer, Lose It — all of them. And I always quit within two weeks. Not because I didn't care about what I was eating. Because logging food is genuinely painful.</p>
+      <p>You scan a barcode, the product isn't in the database. You type "aloo sabzi", nothing comes up. You search "rice", get 300 options with no idea which one is right for the portion you actually ate. By the time you've logged lunch, it's taken four minutes and you've lost the will to do it again tomorrow.</p>
+      <p>I wanted to fix that. I wanted something where you just say what you ate — in plain language, the way you'd tell a friend — and it handles everything else. That's what NutriTrackk Diett is.</p>
+
+      <h2>The Core Insight</h2>
+      <p>Most nutrition apps treat food logging like a database lookup problem. You have to find the exact item, in the exact portion, from the exact brand. That works fine if you eat the same packaged foods every day. It completely breaks down for home-cooked Indian food, restaurant meals, or anything remotely informal.</p>
+      <p>The real problem isn't the database — it's the interface. Natural language is how humans think about food. "I had a bowl of dal tadka, two rotis, and some curd" is a complete, accurate description of a meal. The right tool should understand that sentence directly, not make you translate it into search queries.</p>
+      <p>That's where the Grok API comes in.</p>
+
+      <h2>Why Grok</h2>
+      <p>When I was deciding which AI to power the food parsing layer, I had a few options. The main contenders were GPT-4o, Gemini, and Grok. I went with Grok for three reasons.</p>
+      <p>First, it handles informal and conversational text extremely well — which matters when someone logs "had some snacks in the evening, probably some biscuits and chai." That's not a structured input. Grok parses it more gracefully than models optimised for formal prompts.</p>
+      <p>Second, it has strong knowledge of Indian and South Asian foods out of the box. This was a genuine surprise — I tested "rava upma with coconut chutney" and "rajma chawal with a small piece of gulab jamun" and got accurate nutritional estimates without any special prompting. Other models I tested required significantly more hand-holding for regional foods.</p>
+      <p>Third, the API is fast. For a logging app, latency matters. If your entry takes four seconds to process, it breaks the flow. Grok's response times on this task were consistently under two seconds.</p>
+
+      <div class="arch-wrap">
+        <div class="arch-label-top">Tech Stack — NutriTrackk Diett</div>
+        <div class="arch-diagram">Frontend   : React + Vite              (fast, component-driven UI)
+      AI Layer   : Grok API (xAI)           (natural-language food parsing)
+      State      : localStorage             (offline-capable, no account needed)
+      Charts     : Recharts                 (daily + weekly nutrition visualisation)
+      Styling    : Tailwind CSS             (clean, responsive layout)
+      Deployment : Vercel                   (instant deploy, global CDN)</div>
+      </div>
+
+      <h2>How the Food Logging Works</h2>
+      <p>The core flow is simple: user types what they ate, Grok parses it into structured nutritional data, the app stores and displays it. But making that simple experience feel reliable required a lot of work under the hood.</p>
+      <p>When a user submits a meal description, I send it to Grok with a carefully designed system prompt that asks it to return a structured JSON response. The prompt specifies the exact schema I need — food items, quantities, calories, protein, carbs, fat, and a confidence level for each item. The confidence level is important: it tells the UI whether to show the result confidently or flag it for the user to review.</p>
+
+      <div class="arch-wrap">
+        <div class="arch-label-top">Grok Request Flow</div>
+        <div class="arch-diagram">User types: "dal makhani, 2 rotis, small raita"
+           ↓
+      System prompt: extract foods, estimate portions, return JSON
+           ↓
+      Grok response:
+        [
+          { food: "Dal Makhani", qty: "1 bowl (200g)",
+            kcal: 198, protein: 9, carbs: 24, fat: 7, confidence: 0.92 },
+          { food: "Roti (whole wheat)", qty: "2 medium",
+            kcal: 210, protein: 7, carbs: 42, fat: 3, confidence: 0.97 },
+          { food: "Raita", qty: "1 small bowl (100g)",
+            kcal: 60, protein: 3, carbs: 6, fat: 2, confidence: 0.88 }
+        ]
+           ↓
+      App stores to daily log, updates totals, shows breakdown</div>
+      </div>
+
+      <h2>The Hardest Part: Ambiguous Inputs</h2>
+      <p>Happy-path inputs are easy. "Two eggs and toast" — straightforward. The real engineering challenge is everything else.</p>
+      <p>What do you do with "some snacks"? Or "a bit of everything at the party"? Or "leftover biryani, not sure how much"? These are real things real users log, and they're genuinely ambiguous.</p>
+      <p>My approach was to lean into graceful degradation rather than trying to be perfect. If confidence is below 0.7 for any item, the app highlights it with a subtle indicator and lets the user adjust the quantity or swap the item. It never refuses to log — it always gives you a best estimate and lets you correct it. A rough log is infinitely more useful than no log at all.</p>
+      <p>For completely unrecognisable inputs, Grok returns a clarifying question that the app surfaces to the user: "Did you mean a specific dish, or a general snack? Approximately how much?" This keeps the conversation going rather than throwing an error.</p>
+
+      <h2>Tracking Goals, Not Just Calories</h2>
+      <p>A lot of nutrition apps obsess over calories and treat everything else as secondary. But for most people, the more actionable number is protein — especially if you're trying to build muscle, recover from illness, or just eat more sustainably. Carb awareness matters for diabetics and people managing blood sugar. Fat quality matters for heart health.</p>
+      <p>NutriTrackk tracks all four macros with equal prominence. When you set up your profile, you tell it your goal — lose weight, build muscle, maintain, or just eat better — and it calculates personalised daily targets for all four, not just calories. The dashboard shows progress rings for each macro so you can see at a glance where you're under or over, not just whether you've "hit your calories."</p>
+
+      <div class="arch-wrap">
+        <div class="arch-label-top">Goal Calculation Logic</div>
+        <div class="arch-diagram">Input: age, weight, height, activity level, goal
+      Output: daily targets
+
+      Base metabolic rate    → Harris-Benedict equation
+      Activity multiplier    → sedentary / light / moderate / active / very active
+      Goal adjustment:
+        Lose weight          → -500 kcal deficit
+        Build muscle         → +200 kcal surplus, +protein 2.2g/kg bodyweight
+        Maintain             → TDEE, balanced macros
+        Eat better           → TDEE, emphasise micronutrient variety
+
+      Macro split:
+        Protein  → 0.8–2.2g per kg depending on goal
+        Fat      → 25–35% of total calories
+        Carbs    → remainder</div>
+      </div>
+
+      <h2>Making It Feel Fast</h2>
+      <p>Logging friction is the enemy of consistency. If the app takes time to respond, users stop using it. I made performance a first-class concern throughout the build.</p>
+      <p>Grok API calls are triggered instantly on submit with a loading skeleton in place of the result — the user sees immediate feedback that something is happening. Results typically appear in 1–2 seconds. I also cache recent food lookups in localStorage so repeated entries (your regular breakfast, your usual lunch) resolve instantly without hitting the API again.</p>
+      <p>The entire app state lives in localStorage, not a server. This means it works offline after the first load, there's no account required to get started, and there's no cold start. Open the app, start logging. That's it.</p>
+
+      <h2>The Weekly View</h2>
+      <p>Day-to-day tracking is useful, but patterns only become visible over time. I built a weekly summary view that shows your nutrition across seven days as a bar chart — so you can see, at a glance, that you consistently under-eat protein on weekends, or that Wednesdays are your worst calorie days. That kind of pattern recognition is what actually changes behaviour.</p>
+      <p>The weekly view also shows your goal adherence score — a simple percentage of days you hit all four macro targets within 10% of goal. Seeing "4/7 days on track" is more motivating than a pile of numbers. It makes the abstract goal concrete.</p>
+
+      <h2>The Indian Food Problem (And How I Solved It)</h2>
+      <p>Indian home cooking is enormously varied. Dal can mean 30 different preparations with wildly different nutritional profiles. "Sabzi" tells you almost nothing about calories. Portions are rarely measured. And traditional recipe databases don't reflect the way people actually cook at home — lighter on oil, different spice levels, variations by region and family.</p>
+      <p>I tackled this in two ways. First, Grok's training data is strong on Indian cuisine — better than I expected. It knows the difference between dal tadka and dal makhani, understands that "one roti" is roughly 40g, and handles regional names reasonably well.</p>
+      <p>Second, I built a correction layer. If Grok's estimate for a dish seems off, the user can open that log entry and adjust it. Those corrections are stored locally and applied to future entries — so if you always make your dal with less oil and Grok consistently overcounts fat, you can correct it once and the app remembers.</p>
+
+      <h2>What I Would Do Differently</h2>
+      <p>Looking back, there are a few things I'd approach differently if I were starting fresh.</p>
+      <p><strong>Start with the weekly view.</strong> I built the daily log first and added the weekly summary later. But most users care about trends more than individual days. The weekly view should have been the core product from day one, with daily logging as the input mechanism.</p>
+      <p><strong>Add a quick-log for repeated meals sooner.</strong> A significant portion of eating is repetitive — most people eat the same breakfast every day, have a few regular lunch options. I added a "favourites" quick-log feature late in development, but it should have been there from the start.</p>
+      <p><strong>Be more aggressive about reducing required inputs.</strong> Even simple profile setup (height, weight, goal) creates friction. For v2 I'd let users start logging immediately with no setup, and prompt for profile details progressively as they engage more.</p>
+
+      <h2>Lessons</h2>
+      <p><strong>Natural language is the right interface for logging.</strong> Every user who tried an early version logged more meals than users of comparable apps I tested against. Removing the lookup friction made a measurable difference. The fastest log is the one that matches how you already think about food.</p>
+      <p><strong>Confidence signals matter more than accuracy.</strong> A perfect nutritional estimate is impossible for home-cooked food. What matters is that the app communicates uncertainty honestly and lets users correct it easily. Trust comes from transparency about limitations, not from pretending to be precise.</p>
+      <p><strong>Consistency beats optimisation.</strong> The most important feature of any habit-tracking app is that people keep using it. Every design decision I made — fast responses, no account needed, quick-log for favourites — was in service of reducing the daily friction to near zero. A slightly inaccurate log you keep doing beats a perfect log you abandon.</p>
+      <p>NutriTrackk Diett is live at <a href="https://nutritrackk-diett.vercel.app/" target="_blank" style="color:var(--accent)">nutritrackk-diett.vercel.app →</a></p>`
         }
       ];
 
