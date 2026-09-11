@@ -1887,12 +1887,99 @@
         opacity: 0.82;
         transform: translateY(-2px);
       }
+      .easter-action.secondary {
+        border-color: var(--hr);
+        background: transparent;
+        color: var(--muted);
+      }
+      .easter-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .easter-game[hidden] {
+        display: none;
+      }
+      .easter-game {
+        margin-top: 24px;
+      }
+      .game-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 10px;
+        color: var(--muted);
+        font-family: "Fira Code", monospace;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .game-head strong {
+        color: var(--accent);
+        font-weight: 500;
+      }
+      .game-board {
+        position: relative;
+        height: 210px;
+        overflow: hidden;
+        border: 1px solid var(--hr);
+        background:
+          linear-gradient(var(--hr) 1px, transparent 1px),
+          linear-gradient(90deg, var(--hr) 1px, transparent 1px),
+          var(--bg2);
+        background-size: 24px 24px;
+        cursor: crosshair;
+      }
+      .game-hint {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        color: var(--muted);
+        font-family: "Fira Code", monospace;
+        font-size: 12px;
+        text-align: center;
+        pointer-events: none;
+      }
+      .bug-target {
+        position: absolute;
+        z-index: 2;
+        display: none;
+        width: 42px;
+        height: 42px;
+        padding: 0;
+        border: 1px solid var(--accent);
+        border-radius: 50%;
+        background: var(--bg);
+        font-size: 22px;
+        line-height: 1;
+        cursor: crosshair;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+        transform: rotate(-8deg);
+        transition: left 0.12s ease, top 0.12s ease, transform 0.15s ease;
+      }
+      .bug-target:hover {
+        transform: rotate(8deg) scale(1.12);
+      }
+      .game-result {
+        min-height: 22px;
+        margin-top: 13px;
+        color: var(--text);
+        font-family: "Fira Code", monospace;
+        font-size: 12px;
+        line-height: 1.6;
+      }
       @media (max-width: 520px) {
         .easter-overlay {
           padding: 16px;
         }
         .easter-card {
           padding: 32px 24px 26px;
+        }
+        .game-board {
+          height: 180px;
         }
       }
     </style>
@@ -1929,13 +2016,35 @@
           Roast report: curiosity 10/10. Normal navigation skills: still
           loading.
         </div>
-        <button
-          class="easter-action"
-          type="button"
-          onclick="closeEasterEgg()"
-        >
-          I can take it
-        </button>
+        <div class="easter-game" id="easter-game" hidden>
+          <div class="game-head">
+            <span id="game-name">Bug Catch: impossible mode</span>
+            <span><strong id="game-score">0</strong> pts · <strong id="game-time">10</strong>s</span>
+          </div>
+          <div class="game-board" id="game-board">
+            <div class="game-hint" id="game-hint">
+              Catch the bug before it ships. Win condition: disabled.
+            </div>
+            <button
+              class="bug-target"
+              id="bug-target"
+              type="button"
+              aria-label="Catch the bug"
+            >
+              🐛
+            </button>
+          </div>
+          <div class="game-result" id="game-result"></div>
+        </div>
+        <div class="easter-actions" id="easter-actions">
+          <button
+            class="easter-action secondary"
+            type="button"
+            onclick="closeEasterEgg()"
+          >
+            Leave with dignity
+          </button>
+        </div>
       </div>
     </div>
 
@@ -4995,21 +5104,156 @@
       const easterCopy = document.getElementById('easter-copy');
       const easterRoast = document.getElementById('easter-roast');
       let previousBodyOverflow = '';
+      const roastMessages = {
+        titles: [
+          'Bro, keyboard ne sab bata diya.',
+          'Secret mil gaya. Ab kaam bhi kar le.',
+          'Samarth detected. Productivity not detected.',
+          'You found the side quest.',
+          'Ye naam type kiya ya summon kiya?',
+          'Congratulations, you interrupted the portfolio.',
+          'The website has chosen violence.',
+          'Acha, toh tum woh ho jo hidden buttons dhoondta hai.',
+        ],
+        copies: [
+          'Tumne “Samarth” type karke secret khol diya. Ab exactly wahi energy us folder ke saath dikhao jiska naam final_final_really_final hai.',
+          'Portfolio explore karte karte easter egg mil gaya. GitHub kholte hi tumhara confidence 404 Not Found kyun ho jata hai?',
+          'Secret mil gaya. Ab woh tutorial tab close karo aur apna project run karo. Error aayega, par character bhi.',
+          'Tumne seven letters se feature unlock kar diya. Ab apne project me seven missing semicolons bhi dhoond lo.',
+          'Website ne tumhara naam accept kar liya. Ab dekhte hain tumhara code bhi npm run build accept karta hai ya nahi.',
+          'Tum easter egg dhoond rahe the; meanwhile tumhara pending assignment production me deploy hone ka wait kar raha hai.',
+          'Tum yahan roast lene aaye ho ya apne unfinished projects se emotional distance banane?',
+          'Itni investigation ke baad agar tumne ek bhi project ship nahi kiya, toh ye curiosity nahi, premium procrastination hai.',
+        ],
+        roasts: [
+          'ROAST REPORT: Detective mode ON, delivery mode OFF. Tum features dhoond lete ho, bas finish button se personal dushmani hai.',
+          'ROAST REPORT: Tumne portfolio ko hack nahi kiya; keyboard ne autocomplete kar diya. Confidence phir bhi senior engineer wala.',
+          'ROAST REPORT: GitHub streak se zyada strong tumhari tab-opening streak hai.',
+          'ROAST REPORT: Tumhara code clean hoga, lekin desktop ka Downloads folder definitely witness protection me hai.',
+          'ROAST REPORT: Error aate hi tum debug nahi karte; screen ko 4 second dekar hope karte ho ki bug sharm se chala jayega.',
+          'ROAST REPORT: Secret mil gaya. Ab please ek project ko “almost done” se “done” me migrate karo.',
+          'ROAST REPORT: Tumhara attention span Wi-Fi signal jaisa hai — ek notification aayi aur connection gaya.',
+          'ROAST REPORT: Tumne easter egg dhoond liya, bkl. Ab woh README bhi padh le jo project ke saath free me aati hai.',
+        ],
+      };
+      const triggerLabels = {
+        samarth: 'Keyboard secret unlocked',
+        roast: 'Roast mode activated',
+        debug: 'Debug session hijacked',
+        four04: '404 actually found',
+        clicks: 'Five-click incident recorded',
+        triple: 'Double-click crime scene',
+      };
+      let lastRoastMessage = -1;
+      let gameTimer;
+      let bugMoveTimer;
+      let gameScore = 0;
+      let gameTime = 10;
+      let gameRunning = false;
+      const game = document.getElementById('easter-game');
+      const gameBoard = document.getElementById('game-board');
+      const gameHint = document.getElementById('game-hint');
+      const bugTarget = document.getElementById('bug-target');
+      const gameScoreEl = document.getElementById('game-score');
+      const gameTimeEl = document.getElementById('game-time');
+      const gameResult = document.getElementById('game-result');
 
-      function openEasterEgg(source = 'keyboard') {
-        const isClicks = source === 'clicks';
-        easterKicker.textContent = isClicks
-          ? 'Five-click secret unlocked'
-          : 'Keyboard secret unlocked';
-        easterTitle.textContent = isClicks
-          ? 'Five clicks. Zero patience.'
-          : 'You typed Samarth.';
-        easterCopy.textContent = isClicks
-          ? 'You clicked the name five times like the website owed you a hidden level. Good news: it does. Bad news: the level is mostly about your clicking decisions.'
-          : 'You typed the name of the person whose portfolio you are browsing. That is either excellent detective work or a very specific way to avoid doing your actual work.';
-        easterRoast.textContent = isClicks
-          ? 'ROAST REPORT: curiosity 10/10. Clicking discipline 0/10. You saw a name and treated it like a button. Honestly, that confidence is almost impressive.'
-          : 'ROAST REPORT: you found a secret, but your browser history still has that one tutorial you never finished. Ship something before opening another tab, champion.';
+      function pickDifferentRoast(pool) {
+        let index = Math.floor(Math.random() * pool.length);
+        if (pool.length > 1 && index === lastRoastMessage) {
+          index = (index + 1) % pool.length;
+        }
+        lastRoastMessage = index;
+        return pool[index];
+      }
+
+      const catchResultLines = [
+        score => `Score ${score}: bug ne tujhe debug kar diya, chutiya. Win button kabhi tha hi nahi.`,
+        score => `Score ${score}: bug pakda, jeet nahi. Tumhara mouse bhi bol raha hai “bas kar, chandri”.`,
+        score => `Score ${score}: itni mehnat ke baad bhi loss, bkl. QA report: user needs supervision.`,
+        score => `Score ${score}: bug tumse tez nikla, nalla. Game unfair nahi, tum underprepared ho.`,
+      ];
+
+      function updateGameStats() {
+        gameScoreEl.textContent = gameScore;
+        gameTimeEl.textContent = gameTime;
+      }
+
+      function moveBug() {
+        if (!gameRunning) return;
+        const maxLeft = Math.max(0, gameBoard.clientWidth - bugTarget.offsetWidth);
+        const maxTop = Math.max(0, gameBoard.clientHeight - bugTarget.offsetHeight);
+        bugTarget.style.left = `${Math.floor(Math.random() * (maxLeft + 1))}px`;
+        bugTarget.style.top = `${Math.floor(Math.random() * (maxTop + 1))}px`;
+      }
+
+      function stopBugCatch() {
+        window.clearInterval(gameTimer);
+        window.clearInterval(bugMoveTimer);
+        gameRunning = false;
+        bugTarget.style.display = 'none';
+        game.hidden = true;
+      }
+
+      function resetBugCatch() {
+        stopBugCatch();
+        gameScore = 0;
+        gameTime = 10;
+        updateGameStats();
+        gameResult.textContent = '';
+        gameHint.textContent = 'Catch the bug before it ships. Win condition: disabled.';
+        bugTarget.textContent = '🐛';
+      }
+
+      function startBugCatch() {
+        window.clearInterval(gameTimer);
+        window.clearInterval(bugMoveTimer);
+        gameRunning = true;
+        gameScore = 0;
+        gameTime = 10;
+        updateGameStats();
+        gameResult.textContent = '';
+        game.hidden = false;
+        bugTarget.style.display = 'block';
+        bugTarget.textContent = '🐛';
+        moveBug();
+        bugMoveTimer = window.setInterval(moveBug, 180);
+        gameTimer = window.setInterval(() => {
+          gameTime -= 1;
+          updateGameStats();
+          if (gameTime <= 0) finishBugCatch();
+        }, 1000);
+      }
+
+      function finishBugCatch() {
+        if (!gameRunning) return;
+        gameRunning = false;
+        window.clearInterval(gameTimer);
+        window.clearInterval(bugMoveTimer);
+        bugTarget.style.display = 'none';
+        gameResult.textContent = pickDifferentRoast(catchResultLines)(gameScore);
+      }
+
+      function resetRoastGame() {
+        resetBugCatch();
+        roastBattle.hidden = false;
+        modeBattle.classList.add('active');
+        modeCatch.classList.remove('active');
+        easterCopy.style.display = '';
+        easterRoast.style.display = '';
+      }
+
+      function openEasterEgg(source = 'samarth') {
+        resetRoastGame();
+        roastChat.replaceChildren();
+        appendChat(
+          'bot',
+          'Bol bhai. Jo likhega uska reply bhi milega aur roast bhi. Dono free hain, unlike your unfinished projects.',
+        );
+        easterKicker.textContent = triggerLabels[source] || triggerLabels.samarth;
+        easterTitle.textContent = pickDifferentRoast(roastMessages.titles);
+        easterCopy.textContent = pickDifferentRoast(roastMessages.copies);
+        easterRoast.textContent = pickDifferentRoast(roastMessages.roasts);
         previousBodyOverflow = document.body.style.overflow;
         document.body.classList.add('easter-open');
         easterOverlay.classList.add('open');
@@ -5018,11 +5262,20 @@
       }
 
       function closeEasterEgg() {
+        resetRoastGame();
         easterOverlay.classList.remove('open');
         easterOverlay.setAttribute('aria-hidden', 'true');
         document.body.classList.remove('easter-open');
         document.body.style.overflow = previousBodyOverflow;
       }
+
+      bugTarget.addEventListener('click', () => {
+        if (!gameRunning) return;
+        gameScore += 1;
+        updateGameStats();
+        bugTarget.textContent = ['🐛', '👾', '🪲', '💀'][gameScore % 4];
+        moveBug();
+      });
 
       easterOverlay.addEventListener('click', event => {
         if (event.target === easterOverlay) closeEasterEgg();
@@ -5031,11 +5284,13 @@
       let secretBuffer = '';
       let secretTapCount = 0;
       let secretTapTimer;
+      const secretWords = ['samarth', 'roast', 'debug', '404'];
       window.addEventListener('keydown', event => {
         if (event.key === 'Escape' && easterOverlay.classList.contains('open')) {
           closeEasterEgg();
           return;
         }
+        if (easterOverlay.classList.contains('open')) return;
         const target = event.target;
         if (
           target instanceof HTMLInputElement ||
@@ -5044,11 +5299,12 @@
         ) {
           return;
         }
-        if (event.key.length === 1 && /^[a-z]$/i.test(event.key)) {
-          secretBuffer = (secretBuffer + event.key.toLowerCase()).slice(-7);
-          if (secretBuffer === 'samarth') {
+        if (event.key.length === 1 && /^[a-z0-9]$/i.test(event.key)) {
+          secretBuffer = (secretBuffer + event.key.toLowerCase()).slice(-12);
+          const foundWord = secretWords.find(word => secretBuffer.endsWith(word));
+          if (foundWord) {
             secretBuffer = '';
-            openEasterEgg('keyboard');
+            openEasterEgg(foundWord === '404' ? 'four04' : foundWord);
           }
         }
       });
@@ -5063,6 +5319,10 @@
           secretTapCount = 0;
           openEasterEgg('clicks');
         }
+      });
+
+      document.querySelector('.hero-sub').addEventListener('dblclick', () => {
+        openEasterEgg('triple');
       });
 
       /* ─────────────────────────────────────────────
@@ -5193,3 +5453,4 @@
     </script>
   </body>
 </html>
+
