@@ -1007,6 +1007,48 @@
         color: var(--accent);
         border-color: var(--accent);
       }
+      .contact-copy-button {
+        display: inline-flex;
+        flex: 0 0 30px;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        border: 1px solid var(--hr);
+        border-radius: 4px;
+        background: transparent;
+        color: var(--muted);
+        cursor: pointer;
+        transition: color 0.2s, border-color 0.2s, background 0.2s;
+      }
+      .contact-copy-button svg {
+        display: block;
+        width: 15px;
+        height: 15px;
+      }
+      .contact-copy-button:hover,
+      .contact-copy-button:focus-visible {
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+      .contact-copy-button:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+        border-radius: 2px;
+      }
+      @media (max-width: 480px) {
+        .contact-link-row-email {
+          gap: 8px;
+        }
+        .contact-link-row-email .contact-link-label {
+          width: 44px;
+        }
+        .contact-link-row-email .contact-link {
+          font-size: clamp(13px, 4vw, 16px);
+          letter-spacing: -0.02em;
+        }
+      }
 
       /* ── BLOG CARDS — micro polish ── */
       .blog-card {
@@ -4590,11 +4632,31 @@
           hello. I'm always happy to connect.
         </p>
         <div class="contact-links">
-          <div class="contact-link-row fi">
+          <div class="contact-link-row contact-link-row-email fi">
             <span class="contact-link-label">Email</span
             ><a href="mailto:DevSamarthasati@proton.me" class="contact-link"
               >DevSamarthasati@proton.me</a
+            ><button
+              type="button"
+              class="contact-copy-button"
+              onclick="copyContactEmail(this)"
+              aria-label="Copy email address"
+              title="Copy email address"
+              aria-live="polite"
             >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="8" y="8" width="13" height="13" rx="2" />
+                <path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" />
+              </svg>
+            </button>
           </div>
           <div class="contact-link-row fi">
             <span class="contact-link-label">LinkedIn</span
@@ -5616,6 +5678,36 @@
         });
       }
 
+      async function copyContactEmail(button) {
+        const emailLink = button
+          .closest('.contact-link-row')
+          ?.querySelector('a[href^="mailto:"]');
+        if (!emailLink) return;
+
+        const originalMarkup = button.innerHTML;
+        const originalLabel =
+          button.getAttribute('aria-label') || 'Copy email address';
+        const copiedIcon =
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>';
+        const failedIcon =
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m9 9 6 6m0-6-6 6"/></svg>';
+        try {
+          await navigator.clipboard.writeText(emailLink.textContent.trim());
+          button.innerHTML = copiedIcon;
+          button.setAttribute('aria-label', 'Email copied');
+          button.title = 'Email copied';
+        } catch {
+          button.innerHTML = failedIcon;
+          button.setAttribute('aria-label', 'Copy failed, try again');
+          button.title = 'Copy failed, try again';
+        }
+        setTimeout(() => {
+          button.innerHTML = originalMarkup;
+          button.setAttribute('aria-label', originalLabel);
+          button.title = originalLabel;
+        }, 1800);
+      }
+
       /* ─────────────────────────────────────────────
          READING PROGRESS BAR
       ───────────────────────────────────────────── */
@@ -6158,3 +6250,4 @@
     </script>
   </body>
 </html>
+
