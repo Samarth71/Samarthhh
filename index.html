@@ -612,6 +612,19 @@
           padding 0.2s;
         border-radius: 4px;
       }
+      .pcard.ensura-featured {
+        position: relative;
+      }
+      .pcard.ensura-featured::before {
+        position: absolute;
+        top: -1px;
+        left: 0;
+        width: 48px;
+        height: 2px;
+        border-radius: 2px;
+        background: linear-gradient(90deg, #2767ee, #16bfc0);
+        content: "";
+      }
       .pcard:first-of-type {
         border-top: 1px solid var(--hr);
       }
@@ -642,6 +655,29 @@
       }
       .pcard-title a:hover {
         color: var(--accent);
+      }
+      .ensura-interactive-badge {
+        display: inline-flex;
+        align-items: center;
+        margin-left: 8px;
+        padding: 3px 8px;
+        border: 1px solid rgba(39, 103, 238, 0.18);
+        border-radius: 999px;
+        background: rgba(39, 103, 238, 0.08);
+        color: #2767ee;
+        font-family: "Jost", sans-serif;
+        font-size: 9px;
+        font-style: normal;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        line-height: 1.4;
+        text-transform: uppercase;
+        vertical-align: middle;
+      }
+      body.dark .ensura-interactive-badge {
+        border-color: rgba(138, 180, 255, 0.28);
+        background: rgba(90, 144, 236, 0.16);
+        color: #a9c9ff;
       }
       .pcard-year {
         font-size: 12px;
@@ -1782,6 +1818,315 @@
         }
       }
 
+      /* ── ENSURA PROJECT PREVIEW ── */
+      .ensura-dialog {
+        width: min(920px, calc(100% - 32px));
+        max-width: 920px;
+        max-height: calc(100dvh - 32px);
+        margin: auto;
+        padding: 0;
+        overflow: auto;
+        border: 0;
+        background: transparent;
+        color: #172640;
+      }
+      .ensura-dialog::backdrop {
+        background: rgba(6, 16, 34, 0.72);
+        backdrop-filter: blur(9px);
+      }
+      .ensura-showcase {
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+        min-height: 520px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        border-radius: 22px;
+        background: #f4f7fd;
+        box-shadow: 0 28px 90px rgba(0, 0, 0, 0.32);
+        font-family: "Jost", sans-serif;
+      }
+      .ensura-intro {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: clamp(28px, 4vw, 44px);
+        background: linear-gradient(145deg, #2767ee 0%, #168fe5 54%, #16bfc0 100%);
+        color: #fff;
+      }
+      .ensura-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+      }
+      .ensura-brand-mark {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.48);
+        border-radius: 11px;
+        background: rgba(255, 255, 255, 0.16);
+      }
+      .ensura-brand-mark svg {
+        width: 19px;
+        height: 19px;
+      }
+      .ensura-close {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        display: grid;
+        width: 38px;
+        height: 38px;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.14);
+        color: #fff;
+        font-size: 22px;
+        line-height: 1;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.2s;
+      }
+      .ensura-close:hover {
+        transform: rotate(8deg);
+        background: rgba(255, 255, 255, 0.25);
+      }
+      .ensura-kicker {
+        margin: 46px 0 14px;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+      .ensura-heading {
+        max-width: 390px;
+        margin-bottom: 16px;
+        font-size: clamp(30px, 4vw, 42px);
+        font-weight: 500;
+        line-height: 1.1;
+      }
+      .ensura-intro-copy {
+        max-width: 390px;
+        margin-bottom: 24px;
+        color: rgba(255, 255, 255, 0.88);
+        font-size: 15px;
+        line-height: 1.75;
+      }
+      .ensura-visit {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: auto;
+        padding: 11px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        border-radius: 9px;
+        background: #fff;
+        color: #1c65d7;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .ensura-visit:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 22px rgba(7, 34, 88, 0.22);
+      }
+      .ensura-source-note {
+        margin-top: 22px;
+        color: rgba(255, 255, 255, 0.76);
+        font-size: 11px;
+        line-height: 1.65;
+      }
+      .ensura-content {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        gap: 18px;
+        padding: clamp(24px, 4vw, 38px);
+      }
+      .ensura-content-kicker {
+        margin-bottom: 4px;
+        color: #557098;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.17em;
+        text-transform: uppercase;
+      }
+      .ensura-content-title {
+        color: #172640;
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 1.3;
+      }
+      .ensura-feature-tabs {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .ensura-feature-tab {
+        min-height: 42px;
+        padding: 8px 10px;
+        border: 1px solid #dce5f4;
+        border-radius: 9px;
+        background: #fff;
+        color: #52647f;
+        font: 500 12px "Jost", sans-serif;
+        cursor: pointer;
+        transition: border-color 0.2s, background 0.2s, color 0.2s;
+      }
+      .ensura-feature-tab:hover {
+        border-color: #6f9ef2;
+        color: #245fc9;
+      }
+      .ensura-feature-tab[aria-pressed="true"] {
+        border-color: #3273e6;
+        background: #3273e6;
+        color: #fff;
+        box-shadow: 0 5px 14px rgba(50, 115, 230, 0.2);
+      }
+      .ensura-preview-card {
+        flex: 1;
+        min-height: 240px;
+        padding: 21px;
+        border: 1px solid #e0e8f5;
+        border-radius: 14px;
+        background: #fff;
+        box-shadow: 0 10px 26px rgba(33, 66, 117, 0.06);
+      }
+      .ensura-preview-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 17px;
+      }
+      .ensura-preview-type {
+        color: #2868d8;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+      }
+      .ensura-preview-label {
+        padding: 4px 8px;
+        border-radius: 20px;
+        background: #edf4ff;
+        color: #5273a6;
+        font-size: 9px;
+        letter-spacing: 0.1em;
+      }
+      .ensura-preview-title {
+        margin-bottom: 8px;
+        color: #172640;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.35;
+      }
+      .ensura-preview-copy {
+        min-height: 48px;
+        color: #687892;
+        font-size: 13px;
+        line-height: 1.65;
+      }
+      .ensura-route-visual {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        margin-top: 19px;
+        padding: 13px 11px;
+        border: 1px dashed #d9e4f4;
+        border-radius: 10px;
+        background: #f8faff;
+      }
+      .ensura-route-stop {
+        display: flex;
+        min-width: 76px;
+        flex-direction: column;
+        align-items: center;
+        gap: 7px;
+        text-align: center;
+      }
+      .ensura-route-node {
+        display: grid;
+        width: 30px;
+        height: 30px;
+        place-items: center;
+        border: 1px solid #c7d9f7;
+        border-radius: 50%;
+        background: #fff;
+        color: #2d6bd3;
+        font-size: 10px;
+        font-weight: 600;
+      }
+      .ensura-route-stop small {
+        color: #71809a;
+        font-size: 8px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        line-height: 1.35;
+      }
+      .ensura-route-line {
+        position: relative;
+        top: -8px;
+        flex: 1;
+        border-top: 2px dashed #9ebce9;
+      }
+      .ensura-preview-note {
+        color: #71809a;
+        font-size: 11px;
+        line-height: 1.55;
+      }
+      @media (max-width: 680px) {
+        .ensura-dialog {
+          width: calc(100% - 18px);
+          max-height: calc(100dvh - 18px);
+        }
+        .ensura-showcase {
+          grid-template-columns: minmax(0, 1fr);
+          min-height: 0;
+          border-radius: 17px;
+        }
+        .ensura-intro {
+          padding: 24px 22px 22px;
+        }
+        .ensura-kicker {
+          margin-top: 28px;
+        }
+        .ensura-heading {
+          max-width: 440px;
+          font-size: clamp(28px, 8vw, 36px);
+        }
+        .ensura-intro-copy {
+          margin-bottom: 18px;
+        }
+        .ensura-visit {
+          margin-top: 0;
+        }
+        .ensura-source-note {
+          margin-top: 15px;
+        }
+        .ensura-content {
+          gap: 14px;
+          padding: 22px;
+        }
+        .ensura-preview-card {
+          min-height: 225px;
+          padding: 17px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .ensura-feature-tab,
+        .ensura-close,
+        .ensura-visit {
+          transition: none;
+        }
+      }
+
       /* ── SECRET SAMARTH EASTER EGG ── */
       body.easter-open {
         overflow: hidden;
@@ -1989,7 +2334,133 @@
     <div id="page-loader"></div>
     <!-- Reading progress bar -->
     <div id="read-progress"></div>
-    <div
+      <dialog
+        class="ensura-dialog"
+        id="ensura-dialog"
+        aria-labelledby="ensura-heading"
+      >
+        <div class="ensura-showcase">
+          <section class="ensura-intro">
+            <div class="ensura-brand">
+              <span class="ensura-brand-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M7 3.8h10a3 3 0 0 1 3 3v8.1a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V6.8a3 3 0 0 1 3-3Z"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                  />
+                  <path d="M7 8h10M8 21l2.5-3.1M16 21l-2.5-3.1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                  <circle cx="8" cy="13.3" r="1" fill="currentColor" />
+                  <circle cx="16" cy="13.3" r="1" fill="currentColor" />
+                </svg>
+              </span>
+              <span>ENSURA</span>
+            </div>
+            <button
+              class="ensura-close"
+              type="button"
+              onclick="closeEnsuraShowcase()"
+              aria-label="Close Ensura preview"
+              autofocus
+            >
+              ×
+            </button>
+            <p class="ensura-kicker">Project preview · 2026</p>
+            <h2 class="ensura-heading" id="ensura-heading">
+              Train status, PNRs, and route search in one place.
+            </h2>
+            <p class="ensura-intro-copy">
+              Pick a feature to see what the site offers. This preview does not
+              request live train data.
+            </p>
+            <a
+              class="ensura-visit"
+              href="https://ensura-alpha.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open live Ensura <span aria-hidden="true">↗</span>
+            </a>
+            <p class="ensura-source-note">
+              The site says its train data uses an unofficial IRCTC API and is
+              not affiliated with Indian Railways.
+            </p>
+          </section>
+          <section class="ensura-content" aria-label="Ensura feature preview">
+            <div>
+              <p class="ensura-content-kicker">Choose a feature</p>
+              <h3 class="ensura-content-title">What do you need?</h3>
+            </div>
+            <div class="ensura-feature-tabs" role="group" aria-label="Ensura features">
+              <button
+                class="ensura-feature-tab"
+                type="button"
+                data-ensura-feature="status"
+                aria-pressed="true"
+                onclick="setEnsuraFeature('status')"
+              >
+                Live status
+              </button>
+              <button
+                class="ensura-feature-tab"
+                type="button"
+                data-ensura-feature="pnr"
+                aria-pressed="false"
+                onclick="setEnsuraFeature('pnr')"
+              >
+                PNR status
+              </button>
+              <button
+                class="ensura-feature-tab"
+                type="button"
+                data-ensura-feature="stations"
+                aria-pressed="false"
+                onclick="setEnsuraFeature('stations')"
+              >
+                Between stations
+              </button>
+              <button
+                class="ensura-feature-tab"
+                type="button"
+                data-ensura-feature="scan"
+                aria-pressed="false"
+                onclick="setEnsuraFeature('scan')"
+              >
+                Scan a ticket
+              </button>
+            </div>
+            <div class="ensura-preview-card">
+              <div class="ensura-preview-meta">
+                <span class="ensura-preview-type" id="ensura-preview-type">LIVE STATUS</span>
+                <span class="ensura-preview-label">SITE FEATURE</span>
+              </div>
+              <h4 class="ensura-preview-title" id="ensura-preview-title">
+                Check a train’s running status
+              </h4>
+              <p class="ensura-preview-copy" id="ensura-preview-copy" aria-live="polite">
+                Enter a train number on Ensura. Its page offers optional
+                auto-refresh and says each refresh uses one API call.
+              </p>
+              <div class="ensura-route-visual" aria-hidden="true">
+                <div class="ensura-route-stop">
+                  <span class="ensura-route-node">01</span>
+                  <small id="ensura-route-from">TRAIN NUMBER</small>
+                </div>
+                <span class="ensura-route-line"></span>
+                <div class="ensura-route-stop">
+                  <span class="ensura-route-node">02</span>
+                  <small id="ensura-route-to">LIVE STATUS</small>
+                </div>
+              </div>
+            </div>
+            <p class="ensura-preview-note">
+              This is an informational preview only. Open Ensura for its actual
+              search tools.
+            </p>
+          </section>
+        </div>
+      </dialog>
+      <div
       class="easter-overlay"
       id="easter-overlay"
       aria-hidden="true"
@@ -2009,12 +2480,11 @@
         <div class="easter-kicker" id="easter-kicker">Secret unlocked</div>
         <h2 class="easter-title" id="easter-title">You found Samarth.</h2>
         <p class="easter-copy" id="easter-copy">
-          You were not supposed to find this that quickly. Or maybe you were.
-          Either way, welcome to the interesting part of the portfolio.
+          You found the hidden message. The bug-catching game is designed to be
+          unfair. Go on, test your reflexes anyway.
         </p>
         <div class="easter-roast" id="easter-roast">
-          Roast report: curiosity 10/10. Normal navigation skills: still
-          loading.
+          Roast report loading...
         </div>
         <div class="easter-game" id="easter-game" hidden>
           <div class="game-head">
@@ -2037,6 +2507,14 @@
           <div class="game-result" id="game-result"></div>
         </div>
         <div class="easter-actions" id="easter-actions">
+          <button
+            class="easter-action"
+            id="game-start"
+            type="button"
+            onclick="startBugCatch()"
+          >
+            Start Bug Catch
+          </button>
           <button
             class="easter-action secondary"
             type="button"
@@ -2312,6 +2790,34 @@
             View all →
           </button>
         </div>
+        <button
+          class="row fi"
+          onclick="openEnsuraShowcase()"
+          aria-haspopup="dialog"
+        >
+          <div class="row-info">
+            <div class="row-title">
+              Ensura — Live Train Tracker
+              <span class="ensura-interactive-badge">Interactive</span>
+            </div>
+            <div class="row-desc">
+              Click for a quick train-themed preview of its features.
+            </div>
+          </div>
+          <div class="row-meta">2026</div>
+        </button>
+        <button
+          class="row fi"
+          onclick="window.open('https://visura-fx.vercel.app/','_blank','noopener')"
+        >
+          <div class="row-info">
+            <div class="row-title">Visuraa — Time Capsule Messages</div>
+            <div class="row-desc">
+              Write a message now and schedule it to arrive by email later.
+            </div>
+          </div>
+          <div class="row-meta">2026</div>
+        </button>
         <button
           class="row fi"
           onclick="window.open('https://dr-asatiii.vercel.app/','_blank')"
@@ -2701,6 +3207,148 @@
         <p class="ps fi">Things I've built.</p>
       </div>
       <div class="wrap">
+        <div class="pcard fi ensura-featured">
+          <div class="pcard-top">
+            <div class="pcard-title">
+              <a
+                href="https://ensura-alpha.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onclick="openEnsuraShowcase(event)"
+                aria-haspopup="dialog"
+                aria-label="Open Ensura project preview"
+                >Ensura — Live Train Tracker · Preview →</a
+              >
+            </div>
+            <div class="pcard-year">2026</div>
+          </div>
+          <p class="pcard-desc">
+            Check a train’s live status, look up a PNR, or search trains between
+            stations. Scanning a ticket can fill in a train or PNR number.
+          </p>
+          <div class="tags" style="margin-bottom: 12px">
+            <span class="tag">Train status</span><span class="tag">PNR</span
+            ><span class="tag">Ticket scan</span>
+          </div>
+          <a
+            href="https://ensura-alpha.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="pcard-visit"
+            >Visit Website ↗</a
+          >
+          <div
+            class="erow-top"
+            onclick="toggleEssay('p10')"
+            style="padding-top: 2px"
+          >
+            <span
+              style="
+                font-size: 13px;
+                color: var(--muted);
+                letter-spacing: 0.06em;
+                font-family: &quot;Jost&quot;, sans-serif;
+              "
+              >How it works</span
+            ><span class="erow-arrow" id="arr-p10">↓</span>
+          </div>
+          <div class="essay-body" id="p10">
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
+                >Train and PNR search.</strong
+              >
+              Choose live train status, PNR status, or a search between two
+              stations. The site also offers ticket-photo scanning to fill a
+              train or PNR number.
+            </p>
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
+                >Refresh and data source.</strong
+              >
+              The site says optional auto-refresh checks every three minutes and
+              uses one API call per refresh. Its footer says the data comes from
+              an unofficial IRCTC API via RapidAPI, is not affiliated with
+              Indian Railways, and has a limited free quota. Results are cached
+              for the session.
+            </p>
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
+                >Live location.</strong
+              >
+              The site offers optional location sharing for people on a train.
+              It says sharing uses no API calls and stops when switched off.
+            </p>
+          </div>
+        </div>
+        <div class="pcard fi">
+          <div class="pcard-top">
+            <div class="pcard-title">
+              <a
+                href="https://visura-fx.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Visuraa — Time Capsule Messages ↗</a
+              >
+            </div>
+            <div class="pcard-year">2026</div>
+          </div>
+          <p class="pcard-desc">
+            Write a message now and schedule it to arrive by email on a future
+            date. You can add an occasion, a photo, or an optional 4-digit PIN.
+          </p>
+          <div class="tags" style="margin-bottom: 12px">
+            <span class="tag">Messages</span><span class="tag">Email</span
+            ><span class="tag">Scheduled delivery</span>
+          </div>
+          <a
+            href="https://visura-fx.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="pcard-visit"
+            >Visit Website ↗</a
+          >
+          <div
+            class="erow-top"
+            onclick="toggleEssay('p9')"
+            style="padding-top: 2px"
+          >
+            <span
+              style="
+                font-size: 13px;
+                color: var(--muted);
+                letter-spacing: 0.06em;
+                font-family: &quot;Jost&quot;, sans-serif;
+              "
+              >How it works</span
+            ><span class="erow-arrow" id="arr-p9">↓</span>
+          </div>
+          <div class="essay-body" id="p9">
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
+                >Make a capsule.</strong
+              >
+              Write a message, add the sender and recipient details, then choose
+              a future delivery date and time. You can also select an occasion,
+              attach a photo, or add an optional 4-digit PIN.
+            </p>
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
+                >Delivery and privacy.</strong
+              >
+              The website says each capsule stays private and unopened until
+              its delivery date, then is sent automatically by email. It also
+              says no one, including the site team, can read it before it is
+              due.
+            </p>
+            <p>
+              <strong style="font-weight: 500; color: var(--text)"
+                >After it arrives.</strong
+              >
+              The recipient can open the capsule, save it as a keepsake, or
+              reply by sending a capsule of their own.
+            </p>
+          </div>
+        </div>
         <div class="pcard fi">
           <div class="pcard-top">
             <div class="pcard-title">
@@ -5087,6 +5735,67 @@
 
       window.addEventListener('popstate', routeFromHash);
 
+      const ensuraDialog = document.getElementById('ensura-dialog');
+      const ensuraFeatureDetails = {
+        status: {
+          type: 'LIVE STATUS',
+          title: 'Check a train’s running status',
+          copy: 'Enter a train number on Ensura. Its page offers optional auto-refresh and says each refresh uses one API call.',
+          from: 'TRAIN NUMBER',
+          to: 'LIVE STATUS',
+        },
+        pnr: {
+          type: 'PNR STATUS',
+          title: 'Look up a PNR',
+          copy: 'Enter a PNR number on Ensura to open its PNR status check.',
+          from: 'PNR NUMBER',
+          to: 'PNR STATUS',
+        },
+        stations: {
+          type: 'BETWEEN STATIONS',
+          title: 'Find trains between two stations',
+          copy: 'Choose a departure station, arrival station, and journey date on Ensura.',
+          from: 'FROM STATION',
+          to: 'TO STATION',
+        },
+        scan: {
+          type: 'TICKET SCAN',
+          title: 'Scan a ticket to fill details',
+          copy: 'The site says a ticket photo can fill in a train or PNR number.',
+          from: 'TICKET PHOTO',
+          to: 'TRAIN OR PNR',
+        },
+      };
+
+      function setEnsuraFeature(feature) {
+        const details = ensuraFeatureDetails[feature];
+        if (!details) return;
+
+        document.querySelectorAll('[data-ensura-feature]').forEach(button => {
+          const selected = button.dataset.ensuraFeature === feature;
+          button.setAttribute('aria-pressed', String(selected));
+        });
+        document.getElementById('ensura-preview-type').textContent = details.type;
+        document.getElementById('ensura-preview-title').textContent = details.title;
+        document.getElementById('ensura-preview-copy').textContent = details.copy;
+        document.getElementById('ensura-route-from').textContent = details.from;
+        document.getElementById('ensura-route-to').textContent = details.to;
+      }
+
+      function openEnsuraShowcase(event) {
+        if (event) event.preventDefault();
+        setEnsuraFeature('status');
+        if (!ensuraDialog.open) ensuraDialog.showModal();
+      }
+
+      function closeEnsuraShowcase() {
+        if (ensuraDialog.open) ensuraDialog.close();
+      }
+
+      ensuraDialog.addEventListener('click', event => {
+        if (event.target === ensuraDialog) closeEnsuraShowcase();
+      });
+
       function toggleEssay(id) {
         const body = document.getElementById(id);
         const arr  = document.getElementById('arr-' + id);
@@ -5151,6 +5860,7 @@
       let gameTime = 10;
       let gameRunning = false;
       const game = document.getElementById('easter-game');
+      const gameStart = document.getElementById('game-start');
       const gameBoard = document.getElementById('game-board');
       const gameHint = document.getElementById('game-hint');
       const bugTarget = document.getElementById('bug-target');
@@ -5200,9 +5910,13 @@
         gameScore = 0;
         gameTime = 10;
         updateGameStats();
+        gameStart.hidden = false;
+        gameStart.textContent = 'Start Bug Catch';
         gameResult.textContent = '';
         gameHint.textContent = 'Catch the bug before it ships. Win condition: disabled.';
         bugTarget.textContent = '🐛';
+        easterCopy.style.display = '';
+        easterRoast.style.display = '';
       }
 
       function startBugCatch() {
@@ -5213,7 +5927,10 @@
         gameTime = 10;
         updateGameStats();
         gameResult.textContent = '';
+        easterCopy.style.display = 'none';
+        easterRoast.style.display = 'none';
         game.hidden = false;
+        gameStart.hidden = true;
         bugTarget.style.display = 'block';
         bugTarget.textContent = '🐛';
         moveBug();
@@ -5232,24 +5949,12 @@
         window.clearInterval(bugMoveTimer);
         bugTarget.style.display = 'none';
         gameResult.textContent = pickDifferentRoast(catchResultLines)(gameScore);
-      }
-
-      function resetRoastGame() {
-        resetBugCatch();
-        roastBattle.hidden = false;
-        modeBattle.classList.add('active');
-        modeCatch.classList.remove('active');
-        easterCopy.style.display = '';
-        easterRoast.style.display = '';
+        gameStart.hidden = false;
+        gameStart.textContent = 'Play again';
       }
 
       function openEasterEgg(source = 'samarth') {
-        resetRoastGame();
-        roastChat.replaceChildren();
-        appendChat(
-          'bot',
-          'Bol bhai. Jo likhega uska reply bhi milega aur roast bhi. Dono free hain, unlike your unfinished projects.',
-        );
+        resetBugCatch();
         easterKicker.textContent = triggerLabels[source] || triggerLabels.samarth;
         easterTitle.textContent = pickDifferentRoast(roastMessages.titles);
         easterCopy.textContent = pickDifferentRoast(roastMessages.copies);
@@ -5262,7 +5967,7 @@
       }
 
       function closeEasterEgg() {
-        resetRoastGame();
+        resetBugCatch();
         easterOverlay.classList.remove('open');
         easterOverlay.setAttribute('aria-hidden', 'true');
         document.body.classList.remove('easter-open');
@@ -5290,7 +5995,7 @@
           closeEasterEgg();
           return;
         }
-        if (easterOverlay.classList.contains('open')) return;
+        if (easterOverlay.classList.contains('open') || ensuraDialog.open) return;
         const target = event.target;
         if (
           target instanceof HTMLInputElement ||
@@ -5453,4 +6158,3 @@
     </script>
   </body>
 </html>
-
